@@ -7,7 +7,7 @@ window.addEventListener("load", function(){
   let replaceurl;
   let attributes = new Array;
   for (g = 0; g < listingID.length; g++) {
-    attributes.pushlistingID[g].getAttribute("data-listingID"));
+    attributes.push(listingID[g].getAttribute("data-listingID"));
   }
   if (window.location.href.indexOf("www") !== -1) {
     replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";

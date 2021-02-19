@@ -1,4 +1,4 @@
-<?
+<?php
 ob_start();
 session_start();
 if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST["marketplacesubmit"]))
@@ -45,7 +45,7 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
 
 	if (isset($_POST["marketplacesubmit"])) {
 		$rpext = substr($_FILES['listingimgupdate']['name'],strpos($_FILES['listingimgupdate']['name'], '.'),strlen($_FILES['listingimgupdate']['name']));
-		if (!empty($_POST["listingbioupdate"]) && !empty($_POST["listingbioupdate"])) {
+		if (!empty($_POST["listingbioupdate"]) && !empty($_POST["listingimgupdate"])) {
 			$subject = "listing content update submission from ".$_SESSION['studentName'];
 			if ($_FILES['listingimgupdate']["error"] !== 4) {
 				$mail->AddAttachment($_FILES['listingimgupdate']['tmp_name'],$_FILES['listingimgupdate']['name']="profile".$rpext);
