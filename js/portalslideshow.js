@@ -2,17 +2,17 @@ window.addEventListener("load", function(){
   let dots = document.querySelectorAll(".dot");
   let next = document.querySelector(".next");
   let prev = document.querySelector(".prev");
-  let marketplaceID = document.querySelectorAll('[data-marketplaceID]');
+  let listingID = document.querySelectorAll('[data-listingID]');
   let ID;
   let replaceurl;
   let attributes = new Array;
-  for (g = 0; g < marketplaceID.length; g++) {
-    attributes.push(marketplaceID[g].getAttribute("data-marketplaceID"));
+  for (g = 0; g < listingID.length; g++) {
+    attributes.pushlistingID[g].getAttribute("data-listingID"));
   }
   if (window.location.href.indexOf("www") !== -1) {
-    replaceurl = "placeholderURL/php/studentportal.php?marketplaceIndex=";
+    replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";
   }else{
-    replaceurl = "placeholderURL/php/studentportal.php?marketplaceIndex=";
+    replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";
   }
   let removedURL = window.location.href.replace(replaceurl,'');
   let url = removedURL.replace("#portalmarketplacetitle", "");
@@ -23,25 +23,25 @@ window.addEventListener("load", function(){
   // Next/previous controls
   next.addEventListener("click", function plusSlides(){
     showSlides(slideIndex += 1);
-    counter = (counter+1) % marketplaceID.length;
+    counter = (counter+1) % listingID.length;
     console.log(counter);
-    ID = marketplaceID[counter].getAttribute("data-marketplaceID");
-    window.location.href = "studentportal.php?marketplaceIndex="+ID+"#portalmarketplacetitle";
+    ID = listingID[counter].getAttribute("data-listingID");
+    window.location.href = "studentportal.php?listingIndex="+ID+"#portalmarketplacetitle";
   });
   prev.addEventListener("click", function plusSlides(){
     showSlides(slideIndex += -1);
-    counter = counter == 0 ? marketplaceID.length -1 : counter - 1;
+    counter = counter == 0 ? listingID.length -1 : counter - 1;
     console.log(counter);
-    ID = marketplaceID[counter].getAttribute("data-marketplaceID");
-    window.location.href = "studentportal.php?marketplaceIndex="+ID+"#portalmarketplacetitle";
+    ID = listingID[counter].getAttribute("data-listingID");
+    window.location.href = "studentportal.php?listingIndex="+ID+"#portalmarketplacetitle";
   });
 
   // Thumbnail image controls
   dots.forEach(function(dot, i){
     dot.addEventListener("click", function currentSlide(){
       showSlides(slideIndex = i+1);
-      ID = marketplaceID[i].getAttribute("data-marketplaceID");
-      window.location.href = "studentportal.php?marketplaceIndex="+ID+"#portalmarketplacetitle";
+      ID = listingID[i].getAttribute("data-listingID");
+      window.location.href = "studentportal.php?listingIndex="+ID+"#portalmarketplacetitle";
     });
   });
 

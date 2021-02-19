@@ -44,21 +44,21 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
 	}
 
 	if (isset($_POST["marketplacesubmit"])) {
-		$rpext = substr($_FILES['marketplaceimgupdate']['name'],strpos($_FILES['marketplaceimgupdate']['name'], '.'),strlen($_FILES['marketplaceimgupdate']['name']));
-		if (!empty($_POST["marketplacebioupdate"]) && !empty($_POST["marketplacebioupdate"])) {
-			$subject = "marketplace content update submission from ".$_SESSION['studentName'];
-			if ($_FILES['marketplaceimgupdate']["error"] !== 4) {
-				$mail->AddAttachment($_FILES['marketplaceimgupdate']['tmp_name'],$_FILES['marketplaceimgupdate']['name']="profile".$rpext);
-				$message = "User has requested to update thier marketplace image. Find attached.";
-				echo '<pre>'. print_r($_FILES['marketplaceimgupdate'], 1). '</pre>';
-				echo "marketplace image success...";
+		$rpext = substr($_FILES['listingimgupdate']['name'],strpos($_FILES['listingimgupdate']['name'], '.'),strlen($_FILES['listingimgupdate']['name']));
+		if (!empty($_POST["listingbioupdate"]) && !empty($_POST["listingbioupdate"])) {
+			$subject = "listing content update submission from ".$_SESSION['studentName'];
+			if ($_FILES['listingimgupdate']["error"] !== 4) {
+				$mail->AddAttachment($_FILES['listingimgupdate']['tmp_name'],$_FILES['listingimgupdate']['name']="profile".$rpext);
+				$message = "User has requested to update thier listing image. Find attached.";
+				echo '<pre>'. print_r($_FILES['listingimgupdate'], 1). '</pre>';
+				echo "listing image success...";
 			}
-			if (!empty($_POST["marketplacebioupdate"])) {
-				$message .= "<br>User has requested to update thier marketplace bio.<br><br> <b>marketplace ID:</b><br>".$_GET['marketplaceIndex']."<br><br></b><b>New Bio:</b><br>".test_input($_POST["marketplacebioupdate"]);
-				echo "marketplace bio success...";
+			if (!empty($_POST["listingbioupdate"])) {
+				$message .= "<br>User has requested to update thier listing bio.<br><br> <b>listing ID:</b><br>".$_GET['listingIndex']."<br><br></b><b>New Bio:</b><br>".test_input($_POST["listingbioupdate"]);
+				echo "listing bio success...";
 			}
 		}else{
-			echo "marketplace content empty...";
+			echo "listing content empty...";
 			header("Location: ".$redirect_url."?emptymarketplaces");
 		}
 	}
@@ -74,7 +74,7 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
 
 	if($message !== ""){
 		$mail->Subject = $subject;
-		$message_body = "<b>student:</b><br>".$_SESSION['studentName']."<br> \r\n <br><b>Name:</b><br>".$_SESSION['legalName']." \r\n <br><br><b>Email Adress:</b><br>".$_SESSION['email']."<br> \r\n <br> <b>Message:</b><br>".$message;
+		$message_body = "<b>student:</b><br>".$_SESSION['studentName']."<br> \r\n <br><b>Name:</b><br>".$_SESSION['studentNumber']." \r\n <br><br><b>Email Adress:</b><br>".$_SESSION['email']."<br> \r\n <br> <b>Message:</b><br>".$message;
 		$mail->Body    = $message_body;
 
 		if(!$mail->Send()) 

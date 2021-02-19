@@ -9,25 +9,25 @@ if (!isset($_SESSION['studentID'])) {
     $resultrsqlcheck = mysqli_num_rows($resultrsql);
     if ($resultrsqlcheck > 0) {
         while ($row = mysqli_fetch_assoc($resultrsql)){
-            $marketplacepics .= '
+            $listingpics .= '
                 <div class="mySlides fade">
                     <div class="changecontentcontainer">
                         <div class="changecontent">
-                            <img class="slideIMG" src="../studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'.jpg" alt="'.$row['marketplaceName'].' Artwork">
+                            <img class="slideIMG" src="../studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'.jpg" alt="'.$row['listingName'].' Artwork">
                         </div>
                         <div class="changecontentmiddle">
-                            <div class="changecontenttext" id="changemarketplace" data-change="change'.$row['marketplaceID'].'">Change Content</div>
+                            <div class="changecontenttext" id="changelisting" data-change="change'.$row['listingID'].'">Change Content</div>
                         </div>
                     </div>
                 </div>
             ';
-            $marketplacecount = count($row['marketplaceName']);
-            for ($i=0; $i < $marketplacecount; $i++) {
+            $listingcount = count($row['listingName']);
+            for ($i=0; $i < $listingcount; $i++) {
                 $temp .= '<span class="dot"></span>';
             }
-            $marketplacedots = '<div class="centeralign">'.$temp.'</div>';
-            echo '<div data-marketplaceID="'.$row['marketplaceID'].'"></div>';
-            $marketplaceIndex = htmlspecialchars($_GET["marketplaceIndex"]) !== "" ? htmlspecialchars($_GET["marketplaceIndex"]) : $_SESSION['marketplaceID'];
+            $listingdots = '<div class="centeralign">'.$temp.'</div>';
+            echo '<div data-listingID="'.$row['listingID'].'"></div>';
+            $listingIndex = htmlspecialchars($_GET["listingIndex"]) !== "" ? htmlspecialchars($_GET["listingIndex"]) : $_SESSION['listingID'];
         }
     }
     $sql = "SELECT * FROM payoutRequests t INNER JOIN (SELECT studentID, max(date) AS MaxDate FROM payoutRequests GROUP BY studentID) tm ON t.studentID = tm.studentID AND t.date = tm.MaxDate WHERE t.studentID = ".$_SESSION['studentID'].";";
@@ -104,7 +104,7 @@ if (!isset($_SESSION['studentID'])) {
               ['Platform', 'Percent'],
               <?php
                 require 'dbh.inc.php';
-                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND marketplaceID=".$marketplaceIndex.";";
+                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND listingID=".$listingIndex.";";
                 $resultrsql = mysqli_query($conn, $marketplaceSQL);
                 $resultrsqlcheck = mysqli_num_rows($resultrsql);
                 if ($resultrsqlcheck > 0) {
@@ -133,7 +133,7 @@ if (!isset($_SESSION['studentID'])) {
             data.addRows([
                 <?php
                 require 'dbh.inc.php';
-                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND marketplaceID=".$marketplaceIndex.";";
+                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND listingID=".$listingIndex.";";
                 $resultrsql = mysqli_query($conn, $marketplaceSQL);
                 $resultrsqlcheck = mysqli_num_rows($resultrsql);
                 if ($resultrsqlcheck > 0) {
@@ -163,13 +163,13 @@ if (!isset($_SESSION['studentID'])) {
                             <a href="php/studentportal.php" class="headernav">LOGIN</a>
                             <div class="socialblock">
                                 <a href="">
-                                    <img class="navsocial" src="images/icons/youtube-icon.png" alt="Youtube Icon" />
+                                    <img class="navsocial" src="../images/icons/youtube-icon.png" alt="Youtube Icon" />
                                 </a>
                                 <a href="">
-                                    <img class="navsocial" src="images/icons/facebook-icon.png"  alt="Facebook Icon" />
+                                    <img class="navsocial" src="../images/icons/facebook-icon.png"  alt="Facebook Icon" />
                                 </a>
                                 <a href="">
-                                    <img class="navsocial" src="images/icons/soundcloud-icon.png"  alt="Soundcloud Icon" />
+                                    <img class="navsocial" src="../images/icons/soundcloud-icon.png"  alt="Soundcloud Icon" />
                                 </a>
                                 <div class="dropdown">
                                     <img class="navmenu" src="images/icons/menu-icon.png" alt="Menu Icon" />
@@ -190,12 +190,12 @@ if (!isset($_SESSION['studentID'])) {
             <!-- Header end -->
             <!-- Left start -->
             <div class="leftgrid">
-                <img id="placeholder-logo-left" src="../images/placeholder-logo-left.jpg" alt="placeholder Logo Left" />
+                <img id="placeholder-logo-left" src="../images/placeholder-logo-left.png" alt="placeholder Logo Left" />
             </div>
             <!-- Left end -->
             <!-- right start -->
             <div class="rightgrid">
-                <img id="placeholder-logo-right" src="../images/placeholder-logo-right.jpg" alt="placeholder Logo Right" />
+                <img id="placeholder-logo-right" src="../images/placeholder-logo-right.png" alt="placeholder Logo Right" />
             </div>
             <!-- right end -->
             <!-- Body start -->
@@ -243,18 +243,18 @@ if (!isset($_SESSION['studentID'])) {
                             <div class="portalmarketplace">
                                 <div class="slideshow-container">
                                   <!-- Full-width images with number and caption text -->
-                                  '.$marketplacepics.'
+                                  '.$listingpics.'
                                     <!-- Next and previous buttons -->
                                     <a class="prev">&#10094;</a>
                                     <a class="next">&#10095;</a>
                                 </div>
                                 <br>
-                                '.$marketplacedots.'
+                                '.$listingdots.'
                             </div>
-                            <div class="portalmarketplacechart">
+                            <div class="portallistingchart">
                                 <div id="piechart_3d"></div>
                             </div>
-                            <div class="portalmarketplacetable">
+                            <div class="portallistingtable">
                                 <div id="table_div"></div>
                             </div>
                         </div>
@@ -291,7 +291,7 @@ if (!isset($_SESSION['studentID'])) {
                     <div class="modal-content">
                         <div class="modal-close">+</div>
                         <?php echo '
-                        <form id="modalform" name="form" method="post" class="profileupdate" action="contentsubmit.php?marketplaceIndex='.$marketplaceIndex.'" enctype="multipart/form-data">
+                        <form id="modalform" name="form" method="post" class="profileupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
                             <fieldset>
                                 <h3>Profile Image Update</h3>
                                 <p>Please enter your profile image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br><em>after submission the file will be reviewed and updated on acceptance.</em></p>
@@ -299,7 +299,7 @@ if (!isset($_SESSION['studentID'])) {
                                 <input name="profilesubmit" type="submit" value="Submit">
                             </fieldset>
                         </form>
-                        <form id="modalform" name="form" method="post" class="bioupdate" action="contentsubmit.php?marketplaceIndex='.$marketplaceIndex.'">
+                        <form id="modalform" name="form" method="post" class="bioupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'">
                             <fieldset>
                                 <h3>Profile Bio Update</h3>
                                 <p>Please enter your profile bio with a count of <b>50-200 words</b>.<br><em>after submission the bio will be reviewed and updated on acceptance.</em></p>
@@ -307,12 +307,12 @@ if (!isset($_SESSION['studentID'])) {
                                 <input name="biosubmit" type="submit" value="Submit">
                             </fieldset>
                         </form>
-                        <form id="modalform" name="form" method="post" class="marketplaceupdate" action="contentsubmit.php?marketplaceIndex='.$marketplaceIndex.'" enctype="multipart/form-data">
+                        <form id="modalform" name="form" method="post" class="listingupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
                             <fieldset>
-                                <h3>marketplace Content Update</h3>
-                                <p>Please enter your marketplace bio with a count of <b>50-200 words</b> and/or marketplace image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br><em>after submission the bio and/or image will be reviewed and updated on acceptance.</em></p>
-                                <input type="file" name="marketplaceimgupdate">
-                                <textarea type="text" name="marketplacebioupdate" placeholder="Type your marketplace bio Here...."></textarea>
+                                <h3>listing Content Update</h3>
+                                <p>Please enter your listing bio with a count of <b>50-200 words</b> and/or listing image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br><em>after submission the bio and/or image will be reviewed and updated on acceptance.</em></p>
+                                <input type="file" name="listingimgupdate">
+                                <textarea type="text" name="listingbioupdate" placeholder="Type your listing bio Here...."></textarea>
                                 <input name="marketplaceubmit" type="submit" value="Submit">
                             </fieldset>
                         </form>';

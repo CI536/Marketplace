@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$dbusername = "placeholderusername";
-$dbpassword = "placeholderpassword";
-$dbname = "placeholderdatabase";
+$servername = "brighton";
+$dbusername = "ta459";
+$dbpassword = "!University-03841480";
+$dbname = "ta459_CI536";
 
 $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 

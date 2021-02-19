@@ -34,7 +34,7 @@ if (isset($_POST['payout-submit']) && $_POST['earningsdisplay'] !== "Payout in P
 	$mail->IsHTML(true);
 
 	$mail->Subject = "Payout request from ".$_SESSION['studentName'];
-	$message_body = "<b>student:</b><br>".$_SESSION['studentName']."<br> \r\n <br><b>Name:</b><br>".$_SESSION['legalName']." \r\n <br><br><b>Email Adress:</b><br>".$_SESSION['email']."<br> \r\n <br> <b>Message:</b><br>A payout request has been made.<br><br><b>students Payout Value</b><br>&pound; ".$_POST['earnings'];
+	$message_body = "<b>student:</b><br>".$_SESSION['studentName']."<br> \r\n <br><b>Name:</b><br>".$_SESSION['studentNumber']." \r\n <br><br><b>Email Adress:</b><br>".$_SESSION['email']."<br> \r\n <br> <b>Message:</b><br>A payout request has been made.<br><br><b>students Payout Value</b><br>&pound; ".$_POST['earnings'];
 	$mail->Body    = $message_body;
 
 	if(!$mail->Send()){

@@ -8,7 +8,7 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     function post_captcha($user_response) {
         $fields_string = '';
         $fields = array(
-            'secret' => 'placeholdercaptcha',
+            'secret' => '6LcjIrQZAAAAAOsK_9yappxrd-Dcx_Mb-OYm8vw0',
             'response' => $user_response
         );
         foreach($fields as $key=>$value)
@@ -62,9 +62,9 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 						$_SESSION['studentName'] = $row['studentName'];
 						$_SESSION['pathName'] = $row['pathName'];
 						$_SESSION['studentBio'] = $row['studentBio'];
-						$_SESSION['legalName'] = $row['legalName'];
+						$_SESSION['studentNumber'] = $row['studentNumber'];
 						$_SESSION['email'] = $row['email'];
-						$_SESSION['marketplaceID'] = $row['marketplaceID'];
+						$_SESSION['listingID'] = $row['listingID'];
 						header("location: studentportal.php?login=success");
 						exit();
 					}else{

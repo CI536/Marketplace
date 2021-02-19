@@ -415,7 +415,7 @@ fieldset {
   grid-column-end: 3;
   width: 100%;
 }
-.portalmarketplacechart{
+.portallistingchart{
   grid-row-start: 6;
   grid-row-end: 6;
   grid-column-start: 4;
@@ -423,7 +423,7 @@ fieldset {
   align-content: center;
   display: grid;
 }
-.portalmarketplacetable{
+.portallistingtable{
   grid-row-start: 7;
   grid-row-end: 7;
   grid-column-start: 1;
