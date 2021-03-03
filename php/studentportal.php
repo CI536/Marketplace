@@ -154,7 +154,7 @@ if (!isset($_SESSION['studentID'])) {
             <div class="headergrid">
                 <header>
                     <nav>
-                        <a href="index.html" class="nav">PLACEHOLDER</a>
+                        <a href="../index.html" class="nav">PLACEHOLDER</a>
                         <div class="fltrt">
                             <a href="../students.html" class="headernav">STUDENTS</a>
                             <p class="navbreak">.</p>
