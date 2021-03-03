@@ -1,9 +1,9 @@
 <?php
+require 'dbh.inc.php';
 session_start();
 if (!isset($_SESSION['studentID'])) {
     header("location: ../login.html");
 }else{
-    require 'dbh.inc.php';
     $marketplaceSQL = "SELECT * FROM marketplace WHERE studentID=".$_SESSION['studentID'].";";
     $resultrsql = mysqli_query($conn, $marketplaceSQL);
     $resultrsqlcheck = mysqli_num_rows($resultrsql);
@@ -73,7 +73,7 @@ if (!isset($_SESSION['studentID'])) {
     }
     $earnings = round((round($earnings,2)*0.6),2);
 
-    if ($paid == false) {
+    if ($paid = false) {
         $earningsdisplay = "Payout in Proccess...";
     }else{
         $earningsdisplay = "£ ".$earnings;
@@ -103,7 +103,6 @@ if (!isset($_SESSION['studentID'])) {
             var data = google.visualization.arrayToDataTable([
               ['Platform', 'Percent'],
               <?php
-                require 'dbh.inc.php';
                 $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND listingID=".$listingIndex.";";
                 $resultrsql = mysqli_query($conn, $marketplaceSQL);
                 $resultrsqlcheck = mysqli_num_rows($resultrsql);
