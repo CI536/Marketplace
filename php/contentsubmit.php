@@ -16,7 +16,7 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
 	//It should be same as that of the SMTP user
 
 	echo "mail connection success...";
-	$redirect_url = "http://".$_SERVER['SERVER_NAME']."CI536/php/studentportal.php"; //Redirect URL after submit the form
+	$redirect_url = "http://".$_SERVER['SERVER_NAME']."/CI536/php/studentportal.php"; //Redirect URL after submit the form
 
 	if (isset($_POST["profilesubmit"])) {
 		$pext = substr($_FILES['profileupdate']['name'],strpos($_FILES['profileupdate']['name'], '.'),strlen($_FILES['profileupdate']['name']));
