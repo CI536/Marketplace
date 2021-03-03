@@ -235,7 +235,7 @@ if (!isset($_SESSION['studentID'])) {
                                     <input type="hidden" name="earningsdisplay" value="'.$earningsdisplay.'">
                                     <input type="submit" value="PAYOUT" name="payout-submit" id="payout-submit">
                                 </form>
-                                <h3>Quaterly Earnings: &nbsp;'.$earningsdisplay.'</h3>
+                                <h3>Account funds: &nbsp;'.$earningsdisplay.'</h3>
                             </div>
                             <div class="portalmarketplacetitle" id="portalmarketplacetitle">
                                 <h2>marketplace</h2>
