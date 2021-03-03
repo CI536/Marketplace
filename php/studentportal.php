@@ -125,11 +125,11 @@ if (!isset($_SESSION['studentID'])) {
           }
           function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Platform');
+            data.addColumn('string', 'Listing');
             data.addColumn('number', 'Percent');
-            data.addColumn('number', 'Audio Streams');
-            data.addColumn('number', 'Track Downloads');
-            data.addColumn('number', 'Album Downloads');
+            data.addColumn('number', 'Listing Views');
+            data.addColumn('number', 'Listing Watches');
+            data.addColumn('number', 'Listing Sales');
             data.addRows([
                 <?php
                 require 'dbh.inc.php';
