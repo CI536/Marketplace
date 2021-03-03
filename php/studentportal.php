@@ -128,7 +128,7 @@ if (!isset($_SESSION['studentID'])) {
             data.addColumn('string', 'Listing');
             data.addColumn('number', 'Percent');
             data.addColumn('number', 'Listing Views');
-            data.addColumn('number', 'Listing Watches');
+            data.addColumn('number', 'Listing Watching');
             data.addColumn('number', 'Listing Sales');
             data.addRows([
                 <?php
