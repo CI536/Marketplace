@@ -156,9 +156,9 @@ if (!isset($_SESSION['studentID'])) {
                     <nav>
                         <a href="index.html" class="nav">PLACEHOLDER</a>
                         <div class="fltrt">
-                            <a href="students.html" class="headernav">STUDENTS</a>
+                            <a href="../students.html" class="headernav">STUDENTS</a>
                             <p class="navbreak">.</p>
-                            <a href="marketplace.html" class="headernav">MARKETPLACE</a>
+                            <a href="../marketplace.html" class="headernav">MARKETPLACE</a>
                             <p class="navbreak">.</p>
                             <a href="php/studentportal.php" class="headernav">LOGIN</a>
                             <div class="socialblock">
@@ -174,9 +174,9 @@ if (!isset($_SESSION['studentID'])) {
                                 <div class="dropdown">
                                     <img class="navmenu" src="images/icons/menu-icon.png" alt="Menu Icon" />
                                     <div class="dropdown-content">
-                                            <a href="students.html">STUDENTS</a>
+                                            <a href="../students.html">STUDENTS</a>
                                             <br />
-                                            <a href="marketplace.html">MARKETPLACE</a>
+                                            <a href="../marketplace.html">MARKETPLACE</a>
                                             <br />
                                             <a href="php/studentportal.php">LOGIN</a>
                                     </div>
