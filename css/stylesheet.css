@@ -836,14 +836,19 @@ fieldset {
   text-decoration: none;
 }
 /*---------------------Profile-------------------------------*/
-.imgDetails {
-  display: block;
-}
-.myDetails {
+.profile-details {
+  display: inline-block;
 }
 .profileimg {
-  height: auto;
-  width: 100%;
+  height: 80px;
+  width: 80%;
+  margin-top: 80px;
+  padding: 20px;
+  position: relative;
+}
+.myDetails {
+  list-style-type: none;
+  margin: 50px;
 }
 .profileText {
   font-family: "Josefin Sans", sans-serif;
