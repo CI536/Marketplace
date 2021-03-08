@@ -587,7 +587,6 @@ fieldset {
   font-weight: bold;
   font-size: 18px;
   color: white;
-  background-color: ;
   text-align: center;
   border-radius: 10px;
 }
@@ -686,6 +685,11 @@ fieldset {
 }
 .slideIMG {
   width: 100%;
+}
+.profile-slideIMG {
+  width: 670px;
+  height: 500px;
+  object-fit: cover;
 }
 /* Next & previous buttons */
 .prev,
@@ -800,6 +804,39 @@ fieldset {
   margin-right: auto;
   display: block;
 }
+/*----------------Marketplace side navigation bar-----------------*/
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #e9e9e9;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  display: block;
+}
+/* Active links */
+.sidenav a.active {
+  background-color: #2164f3;
+  color: white;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  background-color: #217cf3;
+  color: #f1f1f1;
+}
+
 /* --------------- Student/Marketplace Flexbox ------------------ */
 .cards {
   display: flex;
@@ -869,6 +906,7 @@ fieldset {
 }
 .footergrid {
   grid-area: footer;
+  z-index: 2;
 }
 .container {
   min-height: 100%;
