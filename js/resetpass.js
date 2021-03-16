@@ -20,9 +20,9 @@ window.addEventListener("load", function(){
 		}
 	});
 	if (window.location.href.indexOf("www") !== -1) {
-    	reseturl = "placeholderURL/resetpass.html?resetrequest=success";
+    	reseturl = "placeholderURL/resetpass.php?resetrequest=success";
 	}else{
-		reseturl = "placeholderURL/resetpass.html?resetrequest=success";
+		reseturl = "placeholderURL/resetpass.php?resetrequest=success";
 	}
 	if(window.location.href == reseturl){
     resetconfirmation.style.display = 'block';

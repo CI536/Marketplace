@@ -11,13 +11,13 @@ if (isset($_POST['resetpass-submit'])){
 	require 'dbh.inc.php';
 
 	if (empty($useruid)) {
-		header("location: ../resetpass.html");
+		header("location: ../resetpass.php");
 		exit();
 	}else{
 		$sql = "SELECT email FROM students WHERE email = ?;";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
-			header("location: ../resetpass.html?error=sqlerror");
+			header("location: ../resetpass.php?error=sqlerror");
 			exit();
 		}else{
 			mysqli_stmt_bind_param($stmt, "s", $useruid);
@@ -78,15 +78,15 @@ if (isset($_POST['resetpass-submit'])){
 				}else{
 					echo "Message has been sent";
 				}
-				header("Location: http://".$_SERVER['SERVER_NAME']."/resetpass.html?resetrequest=success");
+				header("Location: http://".$_SERVER['SERVER_NAME']."/resetpass.php?resetrequest=success");
 			}else{
-				header("location: ../resetpass.html");
+				header("location: ../resetpass.php");
 				exit();
 			}
 		}
 	}
 }else{
-	header("Location: ../resetpass.html");
+	header("Location: ../resetpass.php");
 }
 function byteGen($i) {
 	$bytes = '';

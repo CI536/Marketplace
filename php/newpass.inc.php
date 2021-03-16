@@ -34,7 +34,7 @@ if (isset($_POST['newpass-submit'])) {
 
 			if ($tokenCheck === false) {
 				echo '<p>You must reset your request.<br>
-				<a href="../resetpass.html">Go Back</a></p>';
+				<a href="../resetpass.php">Go Back</a></p>';
 			exit();
 			}else if ($tokenCheck === true) {
 				$tokenEmail = $row['pwdResetEmail'];
@@ -77,6 +77,6 @@ if (isset($_POST['newpass-submit'])) {
 		}
 	}
 }else{
-	header("Location: ../index.html");
+	header("Location: ../index.php");
 }
 ?>

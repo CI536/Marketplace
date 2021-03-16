@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,43 +12,7 @@
     <body>
         <div class="container">
             <!-- Header start -->
-            <div class="headergrid">
-                <header>
-                    <nav>
-                        <a href="index.html" class="nav">PLACEHOLDER</a>
-                        <div class="fltrt">
-                            <a href="profile.html" class="headernav">PROFILE</a>
-                            <p class="navbreak">.</p>
-                            <a href="students.html" class="headernav">STUDENTS</a>
-                            <p class="navbreak">.</p>
-                            <a href="marketplace.html" class="headernav">MARKETPLACE</a>
-                            <p class="navbreak">.</p>
-                            <a href="php/studentportal.php" class="headernav">LOGIN</a>
-                            <div class="socialblock">
-                                <a href="">
-                                    <img class="navsocial" src="images/icons/youtube-icon.png" alt="Youtube Icon" />
-                                </a>
-                                <a href="">
-                                    <img class="navsocial" src="images/icons/facebook-icon.png"  alt="Facebook Icon" />
-                                </a>
-                                <a href="">
-                                    <img class="navsocial" src="images/icons/soundcloud-icon.png"  alt="Soundcloud Icon" />
-                                </a>
-                                <div class="dropdown">
-                                    <img class="navmenu" src="images/icons/menu-icon.png" alt="Menu Icon" />
-                                    <div class="dropdown-content">
-                                        <a href="students.html">STUDENTS</a>
-                                        <br />
-                                        <a href="marketplace.html">MARKETPLACE</a>
-                                        <br />
-                                        <a href="php/studentportal.php">LOGIN</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-            </div>
+            <?php include 'header.php' ?>
             <!-- Header end -->
             <!-- Left start -->
             <div class="leftgrid">
@@ -75,7 +40,7 @@
                 <ol class="cards">
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder1 Image">
                                 <p>Placeholder Item 1</p>
                                 <p>Placeholder 1</p>
@@ -84,7 +49,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder2 Image">
                                 <p>Placeholder Item 2</p>
                                 <p>Placeholder 2</p>
@@ -93,7 +58,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 3</p>
                                 <p>Placeholder 3</p>
@@ -102,7 +67,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 4</p>
                                 <p>Placeholder 4</p>
@@ -111,7 +76,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 5</p>
                                 <p>Placeholder 5</p>
@@ -120,7 +85,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 6</p>
                                 <p>Placeholder 6</p>
@@ -129,7 +94,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 7</p>
                                 <p>Placeholder 7</p>
@@ -138,7 +103,7 @@
                     </li>
                     <li class="card">
                             <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 8</p>
                                 <p>Placeholder 8</p>
@@ -147,7 +112,7 @@
                     </li>
                     <li class="card">
                         <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.html">
+                            <a href="studentdata/placeholder/marketplace/listingpage.php">
                                 <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
                                 <p>Placeholder Item 9</p>
                                 <p>Placeholder 9</p>
@@ -159,28 +124,7 @@
             </div>
             <!-- Body end -->
             <!-- Footer start -->
-            <div class="footergrid">
-                <footer>
-                    <a href="index.html">Home</a>
-                    <p class="navbreak">.</p>
-                    <a href="students.html">Students</a>
-                    <p class="navbreak">.</p>
-                    <a href="marketplace.html">Marketplace</a>
-                    <p class="navbreak">.</p>
-                    <a href="profile.html">Profile</a>
-                    <p class="navbreak">.</p>
-                    <a href="php/studentportal.php">Login</a>
-                    <p class="navbreak">.</p>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <p class="navbreak">.</p>
-                    <a href="termsconditions.html">Terms & Conditions</a>
-                    <p class="navbreak">.</p>
-                    <a href="contact.html">Contact Us</a>
-                    <p class="navbreak">.</p>
-                    <a href="about.html">About Us</a>
-                    <p>© 2021 placeholder</p>
-                </footer>
-            </div>
+            <?php include 'footer.php' ?>
             <!-- Footer end -->
         </div>
     </body>

@@ -2,4 +2,4 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: ../login.html?loggedout");
+header("Location: ../login.php?loggedout");
