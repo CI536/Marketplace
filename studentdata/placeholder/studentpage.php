@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,11 +16,11 @@
             <div class="headergrid">
                 <header>
                     <nav>
-                        <a href="../../index.html" class="nav">PLACEHOLDER</a>
+                        <a href="../../index.php" class="nav">PLACEHOLDER</a>
                         <div class="fltrt">
-                            <a href="../../students.html" class="headernav">STUDENTS</a>
+                            <a href="../../students.php" class="headernav">STUDENTS</a>
                             <p class="navbreak">.</p>
-                            <a href="../../marketplace.html" class="headernav">MARKETPLACE</a>
+                            <a href="../../marketplace.php" class="headernav">MARKETPLACE</a>
                             <p class="navbreak">.</p>
                             <a href="../../php/studentportal.php" class="headernav">LOGIN</a>
                             <div class="socialblock">
@@ -35,9 +36,9 @@
                                 <div class="dropdown">
                                     <img class="navmenu" src="../../images/icons/menu-icon.png" alt="Menu Icon" />
                                     <div class="dropdown-content">
-                                        <a href="../../students.html">STUDENTS</a>
+                                        <a href="../../students.php">STUDENTS</a>
                                         <br />
-                                        <a href="../../marketplace.html">MARKETPLACE</a>
+                                        <a href="../../marketplace.php">MARKETPLACE</a>
                                         <br />
                                         <a href="../../php/studentportal.php">LOGIN</a>
                                     </div>
@@ -132,21 +133,21 @@
             <!-- Footer start -->
             <div class="footergrid">
                 <footer>
-                    <a href="../../index.html">Home</a>
+                    <a href="../../index.php">Home</a>
                     <p class="navbreak">.</p>
-                    <a href="../../students.html">Students</a>
+                    <a href="../../students.php">Students</a>
                     <p class="navbreak">.</p>
-                    <a href="../../marketplace.html">Marketplace</a>
+                    <a href="../../marketplace.php">Marketplace</a>
                     <p class="navbreak">.</p>
                     <a href="studentportal.php">Login</a>
                     <p class="navbreak">.</p>
-                    <a href="../../privacy.html">Privacy Policy</a>
+                    <a href="../../privacy.php">Privacy Policy</a>
                     <p class="navbreak">.</p>
-                    <a href="../../termsconditions.html">Terms & Conditions</a>
+                    <a href="../../termsconditions.php">Terms & Conditions</a>
                     <p class="navbreak">.</p>
-                    <a href="../../contact.html">Contact Us</a>
+                    <a href="../../contact.php">Contact Us</a>
                     <p class="navbreak">.</p>
-                    <a href="../../about.html">About Us</a>
+                    <a href="../../about.php">About Us</a>
                     <p>© 2021 placeholder</p>
                 </footer>
             </div>

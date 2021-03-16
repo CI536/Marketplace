@@ -79,7 +79,7 @@ if (isset($_POST['newpass-submit'])) {
 		}
 	}
 }else{
-	header("Location: ../../index.html")
+	header("Location: ../../index.php")
 }
 
 ?>

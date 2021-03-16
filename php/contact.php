@@ -17,7 +17,7 @@ if(isset($_POST['btnSubmit']))
 	$mail->Password = "placeholderPassword"; // SMTP password
 	//It should be same as that of the SMTP user
 
-	$redirect_url = "http://".$_SERVER['SERVER_NAME']."/contact.html"; //Redirect URL after submit the form
+	$redirect_url = "http://".$_SERVER['SERVER_NAME']."/contact.php"; //Redirect URL after submit the form
 
 	// name validation
 	if (!empty($_POST["fullname"])) {

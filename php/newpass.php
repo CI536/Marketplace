@@ -100,21 +100,21 @@
             <!-- Footer start -->
             <div class="footergrid">
                 <footer>
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <p class="navbreak">.</p>
-                    <a href="../students.html">Students</a>
+                    <a href="../students.php">Students</a>
                     <p class="navbreak">.</p>
-                    <a href="../marketplace.html">Marketplace</a>
+                    <a href="../marketplace.php">Marketplace</a>
                     <p class="navbreak">.</p>
                     <a href="studentportal.php">Login</a>
                     <p class="navbreak">.</p>
-                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../privacy.php">Privacy Policy</a>
                     <p class="navbreak">.</p>
-                    <a href="../termsconditions.html">Terms & Conditions</a>
+                    <a href="../termsconditions.php">Terms & Conditions</a>
                     <p class="navbreak">.</p>
-                    <a href="../contact.html">Contact Us</a>
+                    <a href="../contact.php">Contact Us</a>
                     <p class="navbreak">.</p>
-                    <a href="../about.html">About Us</a>
+                    <a href="../about.php">About Us</a>
                     <p>© 2021 placeholder</p>
                 </footer>
             </div>

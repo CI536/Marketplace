@@ -32,20 +32,22 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!$res['success']) {
         // What happens when the CAPTCHA wasn't checked
-        header("location: ../login.html?error=recaptcha");
+        header("location: ../login.php?error=recaptcha");
 		exit();
     }else{
         $mailuid = $_POST['mailuid'];
 		$password = $_POST['pwd'];
 
 		if (empty($mailuid) || empty($password)) {
-			header("location: ../login.html?error=emptyfields");
+			header("location: ../login.php?error=emptyfields");
 			exit();
 		}else{
 			$sql = "SELECT * FROM students LEFT JOIN marketplace ON students.studentID = marketplace.studentID WHERE email = ?;";
-			$stmt = mysqli_stmt_init($conn);
+            if (isset($conn)) {
+                $stmt = mysqli_stmt_init($conn);
+            }
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
-				header("location: ../login.html?error=sqlerror");
+				header("location: ../login.php?error=sqlerror");
 				exit();
 			}else{
 				mysqli_stmt_bind_param($stmt, "s", $mailuid);
@@ -54,7 +56,7 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 				if ($row = mysqli_fetch_assoc($result)) {
 					$pwdcheck = password_verify($password, $row['password']);
 					if ($pwdcheck == false) {
-						header("location: ../login.html?error=wrongpassword");
+						header("location: ../login.php?error=wrongpassword");
 						exit();
 					}else if($pwdcheck == true){
 						session_start();
@@ -65,20 +67,20 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 						$_SESSION['studentNumber'] = $row['studentNumber'];
 						$_SESSION['email'] = $row['email'];
 						$_SESSION['listingID'] = $row['listingID'];
-						header("location: studentportal.php?login=success");
+						header("location: ../studentportal.php?login=success");
 						exit();
 					}else{
-						header("location: ../login.html?error=wrongpassword");
+						header("location: ../login.php?error=wrongpassword");
 						exit();
 					}
 				}else{
-					header("location: ../login.html?error=invaliduserdetails");
+					header("location: ../login.php?error=invaliduserdetails");
 					exit();
 				}
 			}
 		}
     }
 }else{
-	header("location: ../login.html?poo");
+	header("location: ../login.php?poo");
 	exit();
 }
