@@ -1,9 +1,9 @@
 <?php
 
 $servername = "brighton";
-$dbusername = "ta459";
-$dbpassword = "!University-03841480";
-$dbname = "ta459_CI536";
+$dbusername = "your uni id";
+$dbpassword = "yourunipass";
+$dbname = "your database name";
 
 $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
