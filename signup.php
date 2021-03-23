@@ -33,6 +33,10 @@
                         <input type="text" name="uid" placeholder="Full Name">
                     </label>
                     <label>
+                        <p>Student Number</p>
+                        <input  type="text" name="studentNo" placeholder="Student Number">
+                    </label>
+                    <label>
                         <p>E-mail</p>
                         <input type="text" name="email" placeholder="E-mail">
                     </label>
