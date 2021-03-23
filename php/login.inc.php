@@ -42,9 +42,12 @@ if (isset($_POST['login-submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 			header("location: ../login.php?error=emptyfields");
 			exit();
 		}else{
-			$sql = "SELECT * FROM students LEFT JOIN marketplace ON students.studentID = marketplace.studentID WHERE email = ?;";
+			$sql = "SELECT * FROM students LEFT JOIN marketplace ON students.studentID = marketplace.studentID WHERE email = ?";
             if (isset($conn)) {
                 $stmt = mysqli_stmt_init($conn);
+            }else{
+                header("../login.php?error=mysqlerror");
+                exit();
             }
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
 				header("location: ../login.php?error=sqlerror");

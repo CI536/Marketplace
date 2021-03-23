@@ -5,7 +5,12 @@ if (isset($_POST['payout-submit']) && $_POST['earningsdisplay'] !== "Payout in P
 	require 'dbh.inc.php';
 
 	$sql = "INSERT INTO `payoutRequests` (`studentID`, `date`, `earnings`, `paid`) VALUES (".$_SESSION['studentID'].", '".$currentDate."', ".$_POST['earnings'].", '0');";
-	$stmt = mysqli_stmt_init($conn);
+    if (isset($conn)) {
+        $stmt = mysqli_stmt_init($conn);
+    }else{
+        header("../login.php?error=mysqlerror");
+        exit();
+    }
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: studentportal.php?error=sqlerror");
 		exit();

@@ -16,7 +16,12 @@ if (isset($_POST['newpass-submit'])) {
 	require 'dbh.inc.php';
 
 	$sql = "SELECT * FROM pwdReset WHERE pwdResetSelector = ? AND pwdResetExpires >=".$currentdate.";";
-	$stmt = mysqli_stmt_init($conn);
+    if (isset($conn)) {
+        $stmt = mysqli_stmt_init($conn);
+    }else{
+        header("../login.php?error=mysqlerror");
+        exit();
+    }
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		echo "mysql connection error 0";
 		exit();

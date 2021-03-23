@@ -42,6 +42,8 @@
                             <input type="password" name="pwd" id="password" placeholder="Your password here">
                             <span class="password_error"></span>
                         </fieldset>
+                        <a href="signup.php">Create an Account</a>
+                        <br>
                         <a href="resetpass.php">Forgot my password</a>
                         <fieldset>
                             <input name="login-submit" type="submit" id="login-submit" value="SIGN IN" />

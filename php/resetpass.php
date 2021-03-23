@@ -15,7 +15,12 @@ if (isset($_POST['resetpass-submit'])){
 		exit();
 	}else{
 		$sql = "SELECT email FROM students WHERE email = ?;";
-		$stmt = mysqli_stmt_init($conn);
+        if (isset($conn)) {
+            $stmt = mysqli_stmt_init($conn);
+        }else{
+            header("../login.php?error=mysqlerror");
+            exit();
+        }
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			header("location: ../resetpass.php?error=sqlerror");
 			exit();
