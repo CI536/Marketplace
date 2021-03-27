@@ -8,6 +8,7 @@
         <link href="css/normalize.css" rel="stylesheet" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src ="js/searchBar.js"></script>
     </head>
     <body>
         <div class="container">
@@ -17,7 +18,12 @@
             <!-- Left start -->
             <div class="leftgrid">
                 <div class="sidenav">
-                    <input type="text" placeholder="Search Marketplace">
+                    <div id="searchWrapper">
+                        <input type="text" 
+                         name="searchBar"
+                         id="searchBar" 
+                         placeholder="Search">
+                    </div>
                     <a href="#">Browse all</a>
                     <a href="#">Notifications</a>
                     <a href="#">Basket</a>
@@ -31,96 +37,10 @@
             </div>
             <!-- Left end -->
             <!-- right start -->
-            <div class="rightgrid">
-            </div>
-            <!-- right end -->
+           
             <!-- Body start -->
             <div class="bodygrid">
-                
-                <ol class="cards">
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder1 Image">
-                                <p>Placeholder Item 1</p>
-                                <p>Placeholder 1</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder2 Image">
-                                <p>Placeholder Item 2</p>
-                                <p>Placeholder 2</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 3</p>
-                                <p>Placeholder 3</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 4</p>
-                                <p>Placeholder 4</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 5</p>
-                                <p>Placeholder 5</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 6</p>
-                                <p>Placeholder 6</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 7</p>
-                                <p>Placeholder 7</p>
-                            </a>
-                         </div>
-                    </li>
-                    <li class="card">
-                            <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 8</p>
-                                <p>Placeholder 8</p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div class="card-content">
-                            <a href="studentdata/placeholder/marketplace/listingpage.php">
-                                <img src="studentdata/placeholder/marketplace/artwork.jpg" alt="placeholder3 Image">
-                                <p>Placeholder Item 9</p>
-                                <p>Placeholder 9</p>
-                            </a>
-                        </div>
-                    </li>
-          
-                </ol>
+                <ul class = cards id="charactersList"></ul> <!--it will be populated in js/searchBar.js-->
             </div>
             <!-- Body end -->
             <!-- Footer start -->
