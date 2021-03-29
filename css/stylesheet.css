@@ -61,6 +61,15 @@ header {
   height: 30px;
   width: 30px;
 }
+.dropbtn {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -836,8 +845,20 @@ fieldset {
   background-color: #217cf3;
   color: #f1f1f1;
 }
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-/* Searchbar */
+input[type="checkbox"] {
+  vertical-align: middle;
+}
+label,
+input {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Search bar */
 #searchBar {
   border: 1px solid #eaeaea;
   padding: 5px 5px;
@@ -853,6 +874,8 @@ fieldset {
   top: 5px;
   right: 5px;
 }
+/* price slider */
+
 /* --------------- Student/Marketplace Flexbox ------------------ */
 .cards {
   display: flex;
@@ -977,6 +1000,16 @@ fieldset {
       "header header header"
       "left body right"
       "footer footer footer";
+  }
+  .marketplaceContainer {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header header"
+      "left body"
+      "footer footer";
   }
   .navmenu {
     display: none;

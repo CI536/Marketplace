@@ -11,7 +11,7 @@
         <script src ="js/searchBar.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="marketplaceContainer">
             <!-- Header start -->
             <?php include 'header.php' ?>
             <!-- Header end -->
@@ -24,15 +24,52 @@
                          id="searchBar" 
                          placeholder="Search">
                     </div>
-                    <a href="#">Browse all</a>
                     <a href="#">Notifications</a>
                     <a href="#">Basket</a>
                     <a href="#">+ Create New Listing</a>
-                    <a href="#">Filters</a>
-                    <a href="#">Vehicles</a>
-                    <a href="#">Clothing</a>
-                    <a href="#">Electronics</a>
-                    <a href="#">University Material</a>
+                    
+                    <h3>Order by</h3>
+                    <ul>
+                        <li><div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Publish date: latest</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Publish date: latest</a>
+                            <a href="#">Publish date: oldest</a>
+                        </div>
+                    </div></li>
+                        <li> <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Price: lower</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Price: lower</a>
+                            <a href="#">Price: higher</a>
+                        </div>
+                    </div></li>
+                            
+                    </ul>
+                    
+                   
+                
+                    
+                    <h3>Filter by</h3>
+                    
+                    <h4>Location</h4>
+                    <input type="text" id="postcode" placeholder="Search by postcode">
+                    
+                    <h4>Price</h4>
+                    <input type="range" id="amount">
+                    
+                    <h4>Category</h4>
+                    <ul>
+                        <li><a href="#"><label for "vehicle">Vehicle</label>
+                        <input type="checkbox" id="vehicle" name="vehicle"></a></li>
+                    <li><a href="#"><label for "clothing">Clothing</label>
+                    <input type="checkbox" id="clothing" name="clothing"></a></li>
+                    <li><a href="#"><label for "electronics">Electronics</label>
+                    <input type="checkbox" id="electronics" name="electronics"></a></li>
+                    <li><a href="#"><label for "books">Books</label>
+                    <input type="checkbox" id="books" name="books"></a></li>
+                    </ul>
+                    
                   </div>
             </div>
             <!-- Left end -->
@@ -40,7 +77,7 @@
            
             <!-- Body start -->
             <div class="bodygrid">
-                <ul class = cards id="charactersList"></ul> <!--it will be populated in js/searchBar.js-->
+                <ul class = cards id="charactersList"></ul>
             </div>
             <!-- Body end -->
             <!-- Footer start -->
