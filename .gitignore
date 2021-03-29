@@ -3,3 +3,4 @@
 .idea/Marketplace.iml
 .idea/modules.xml
 .idea/workspace.xml
+*.code-workspace
