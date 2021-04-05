@@ -15,7 +15,7 @@ if (!isset($_SESSION['studentID'])) {
                 <div class="mySlides fade">
                     <div class="changecontentcontainer">
                         <div class="changecontent">
-                            <img class="slideIMG" src="studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'.jpg" alt="'.$row['listingName'].' Artwork">
+                            <img class="slideIMG" src="studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'.jpg" alt="'.$row['listingName'].' Listing Image">
                         </div>
                         <div class="changecontentmiddle">
                             <div class="changecontenttext" id="changelisting" data-change="change'.$row['listingID'].'">Change Content</div>
@@ -103,14 +103,14 @@ if (!isset($_SESSION['studentID'])) {
           google.charts.setOnLoadCallback(drawTable);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Platform', 'Percent'],
+              ['Listing', 'Percent'],
               <?php
-                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND listingID=".$listingIndex.";";
+                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID'].";";
                 $resultrsql = mysqli_query($conn, $marketplaceSQL);
                 $resultrsqlcheck = mysqli_num_rows($resultrsql);
                 if ($resultrsqlcheck > 0) {
                     while ($row = mysqli_fetch_assoc($resultrsql)){
-                        echo "['".$row['platform']."',".$row['percent']."],";
+                        echo "['".$row['listingName']."',".$row['percent']."],";
                     }
                 }
               ?>
@@ -134,12 +134,12 @@ if (!isset($_SESSION['studentID'])) {
             data.addRows([
                 <?php
                 require 'php/dbh.inc.php';
-                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID']." AND listingID=".$listingIndex.";";
+                $marketplaceSQL = "SELECT * FROM stats WHERE studentID=".$_SESSION['studentID'].";";
                 $resultrsql = mysqli_query($conn, $marketplaceSQL);
                 $resultrsqlcheck = mysqli_num_rows($resultrsql);
                 if ($resultrsqlcheck > 0) {
                     while ($row = mysqli_fetch_assoc($resultrsql)){
-                        echo "['".$row['platform']."',{v: ".$row['percent'].", f: \"".$row['percent']."%\"}, ".$row['audioStreams'].",".$row['trackDownloads'].",".$row['albumDownloads']."],";
+                        echo "['".$row['listingName']."',{v: ".$row['percent'].", f: \"".$row['percent']."%\"}, ".$row['listingViews'].",".$row['listingWatching'].",".$row['listingSales']."],";
                     }
                 }
               ?>
@@ -196,7 +196,7 @@ if (!isset($_SESSION['studentID'])) {
                                 </div>
                             </div>
                             <div class="portalpayout">
-                                <form class="fltrt" action="php/payout.php" method="post">
+                                <form class="fltrt portalbutton" action="php/payout.php" method="post">
                                     <input id="earnings" type="hidden" name="earnings" value="' .$earnings.'">
                                     <input type="hidden" name="earningsdisplay" value="'.$earningsdisplay.'">
                                     <input type="submit" value="PAYOUT" name="payout-submit" id="payout-submit">
@@ -205,6 +205,12 @@ if (!isset($_SESSION['studentID'])) {
                             </div>
                             <div class="portalmarketplacetitle" id="portalmarketplacetitle">
                                 <h2>marketplace</h2>
+                            </div>
+                            <div class="portalnewlisting">
+                                <form class="fltrt portalbutton" action="" method="post">
+                                    <input type="submit" value="New Listing" name="newlisting-submit" id="newlisting-submit">
+                                </form>
+                                <h3>Upload new Listing</h3>
                             </div>
                             <div class="portalmarketplace">
                                 <div class="slideshow-container">
@@ -238,7 +244,18 @@ if (!isset($_SESSION['studentID'])) {
                     <div class="modal-content">
                         <div class="modal-close">+</div>
                         <?php echo '
-                        <form id="modalform" name="form" method="post" class="profileupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
+                        <form id="modalform" name="form" method="post" class="listingupload" action="php/contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
+                            <fieldset>
+                                <h3>New Listing Upload</h3>
+                                <p>Please enter your listing bio with a count of <b>50-200 words</b> and listing image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br></p>
+                                <input type="file" name="listingimgupload">
+                                <input type="text" name="listingtitleupload" placeholder="Type your listing title here...">
+                                <input type="number" min="0.00" step="0.01" name="listingpriceupload" placeholder="Type your listing price here...">
+                                <textarea type="text" name="listingbioupload" placeholder="Type your listing bio here...."></textarea>
+                                <input name="newlistingsubmit" type="submit" value="Submit">
+                            </fieldset>
+                        </form>
+                        <form id="modalform" name="form" method="post" class="profileupdate" action="php/contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
                             <fieldset>
                                 <h3>Profile Image Update</h3>
                                 <p>Please enter your profile image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br><em>after submission the file will be reviewed and updated on acceptance.</em></p>
@@ -246,7 +263,7 @@ if (!isset($_SESSION['studentID'])) {
                                 <input name="profilesubmit" type="submit" value="Submit">
                             </fieldset>
                         </form>
-                        <form id="modalform" name="form" method="post" class="bioupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'">
+                        <form id="modalform" name="form" method="post" class="bioupdate" action="php/contentsubmit.php?listingIndex='.$listingIndex.'">
                             <fieldset>
                                 <h3>Profile Bio Update</h3>
                                 <p>Please enter your profile bio with a count of <b>50-200 words</b>.<br><em>after submission the bio will be reviewed and updated on acceptance.</em></p>
@@ -254,7 +271,7 @@ if (!isset($_SESSION['studentID'])) {
                                 <input name="biosubmit" type="submit" value="Submit">
                             </fieldset>
                         </form>
-                        <form id="modalform" name="form" method="post" class="listingupdate" action="contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
+                        <form id="modalform" name="form" method="post" class="listingupdate" action="php/contentsubmit.php?listingIndex='.$listingIndex.'" enctype="multipart/form-data">
                             <fieldset>
                                 <h3>listing Content Update</h3>
                                 <p>Please enter your listing bio with a count of <b>50-200 words</b> and/or listing image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br><em>after submission the bio and/or image will be reviewed and updated on acceptance.</em></p>

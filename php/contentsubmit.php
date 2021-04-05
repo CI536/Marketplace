@@ -1,22 +1,54 @@
 <?php
 ob_start();
 session_start();
-if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST["marketplacesubmit"]))
+if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST["marketplacesubmit"]) || isset($_POST["newlistingsubmit"]))
 {
-	require("class.phpmailer.php");
-	$mail = new PHPMailer();
-	$name_error = $email_error = false;
-	$message = $subject = "";
-	//Your SMTP servers details
-	$mail->IsSMTP();               // set mailer to use SMTP
-	$mail->Host = "placeholderMailServer";  // specify main and backup server or localhost
-	$mail->SMTPAuth = true;     // turn on SMTP authentication
-	$mail->Username = "web@placeholderEmail";  // SMTP username
-	$mail->Password = "placeholderPassword"; // SMTP password
-	//It should be same as that of the SMTP user
+    require 'dbh.inc.php';
+	$redirect_url = "http://".$_SERVER['SERVER_NAME']."/CI536/studentportal.php"; //Redirect URL after submit the form
 
-	echo "mail connection success...";
-	$redirect_url = "http://".$_SERVER['SERVER_NAME']."/CI536/php/studentportal.php"; //Redirect URL after submit the form
+    if (isset($_POST["newlistingsubmit"])){
+        $listingimgupload = $_FILES['listingimgupload'];
+        $listingimgnameupload = $_FILES['listingimgupload']['name'];
+        $listingimgtmpnameupload = $_FILES['listingimgupload']['tmp_name'];
+        $listingimgsizeupload = $_FILES['listingimgupload']['size'];
+        $listingimgerrorupload = $_FILES['listingimgupload']['error'];
+        $listingimgtypeupload = $_FILES['listingimgupload']['type'];
+        $fileExt = explode('.', $listingimgnameupload);
+        $fileActualExt = strtolower(end($fileExt));
+        $allowedExt = array('jpg', 'jpeg');
+        if (in_array($fileActualExt, $allowedExt)){
+            if ($listingimgerrorupload === 0){
+                if ($listingimgsizeupload < 500000){
+                    $fileNameNew = uniqid('', true);
+                    $fileDest = '../studentdata/'.$_SESSION['pathName'].'/marketplace/'.$fileNameNew.".".$fileActualExt;
+                    move_uploaded_file($listingimgtmpnameupload, $fileDest);
+
+                    $sql = 'INSERT INTO marketplace (studentID, listingName, fileName, listingBio, listingPrice) VALUES (?, ?, ?, ?, ?)';
+                    if (isset($conn)) {
+                        $stmt = mysqli_stmt_init($conn);
+                    }else{
+                        header("Location: ".$redirect_url."?uploadinitsqlerror");
+                        exit();
+                    }
+                    if (!mysqli_stmt_prepare($stmt, $sql)){
+                        header("Location: ".$redirect_url."?uploadprepsqlerror");
+                        exit();
+                    }else{
+                        mysqli_stmt_bind_param($stmt, "isssi", $_SESSION['studentID'], $_POST['listingtitleupload'], $fileNameNew, $_POST['listingbioupload'], $_POST['listingpriceupload']);
+                        mysqli_stmt_execute($stmt);
+                        header("Location: ".$redirect_url."?uploadSuccessful");
+                        exit();
+                    }
+                }else{
+                    echo "file size to large";
+                }
+            }else{
+                echo "There was an error with the image file";
+            }
+        }else{
+            echo "Wrong File extension type";
+        }
+    }
 
 	if (isset($_POST["profilesubmit"])) {
 		$pext = substr($_FILES['profileupdate']['name'],strpos($_FILES['profileupdate']['name'], '.'),strlen($_FILES['profileupdate']['name']));
@@ -63,32 +95,7 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
 		}
 	}
 
-	$mail->From = $mail->Username;	//Default From email same as smtp user
-	$mail->FromName = $_SESSION['studentName'];
 
-	//Email address where you wish to receive/collect those emails.
-	$mail->AddAddress("tim@placeholderEmail", "Tim");
-
-	$mail->WordWrap = 50;                                 // set word wrap to 50 characters
-	$mail->IsHTML(true);                                  // set email format to HTML
-
-	if($message !== ""){
-		$mail->Subject = $subject;
-		$message_body = "<b>student:</b><br>".$_SESSION['studentName']."<br> \r\n <br><b>Name:</b><br>".$_SESSION['studentNumber']." \r\n <br><br><b>Email Adress:</b><br>".$_SESSION['email']."<br> \r\n <br> <b>Message:</b><br>".$message;
-		$mail->Body    = $message_body;
-
-		if(!$mail->Send()) 
-		{
-		   echo "Message could not be sent.";
-		   echo "Mailer Error: " . $mail->ErrorInfo;
-		   exit;
-		}else{
-			echo "Message has been sent";
-		}
-		header("Location: ".$redirect_url."?sent");
-	}else{
-		echo '<pre>Message couldnt send. <br><a href="studentportal.php">Go Back</a></pre>';
-	}
 }else{
 	echo '<pre>Mail attempt failed <br><a href="studentportal.php">Go Back</a></pre>';
 }

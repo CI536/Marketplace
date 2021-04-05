@@ -443,27 +443,36 @@ fieldset {
   grid-column-end: 7;
   background-color: #f4f4f4;
 }
-.portalmarketplace,
-.portalmarketplace img {
+.portalnewlisting {
   grid-row-start: 6;
   grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+.portalmarketplace,
+.portalmarketplace img {
+  grid-row-start: 7;
+  grid-row-end: 7;
   grid-column-start: 1;
   grid-column-end: 3;
   width: 100%;
 }
 .portallistingchart {
-  grid-row-start: 6;
-  grid-row-end: 6;
+  grid-row-start: 7;
+  grid-row-end: 7;
   grid-column-start: 4;
   grid-column-end: 7;
   align-content: center;
   display: grid;
 }
 .portallistingtable {
-  grid-row-start: 7;
-  grid-row-end: 7;
+  grid-row-start: 8;
+  grid-row-end: 8;
   grid-column-start: 1;
   grid-column-end: 7;
+}
+.portalbutton{
+  padding-top: 15px;
 }
 #piechart_3d {
   overflow: hidden;
