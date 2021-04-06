@@ -8,6 +8,7 @@
         <link href="css/normalize.css" rel="stylesheet" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src ="js/searchBar.js"></script>
     </head>
     <body>
@@ -60,14 +61,16 @@
                     
                     <h4>Category</h4>
                     <ul>
-                        <li><a href="#"><label for "vehicle">Vehicle</label>
+                        <li><a href="#"><label for "all">Show all</label>
+                        <input type="checkbox" id="all" name="all" checked></a></li>
+                        <li><a href="#"><label for "vehicle">Gryffindor</label>
                         <input type="checkbox" id="vehicle" name="vehicle"></a></li>
-                    <li><a href="#"><label for "clothing">Clothing</label>
-                    <input type="checkbox" id="clothing" name="clothing"></a></li>
-                    <li><a href="#"><label for "electronics">Electronics</label>
-                    <input type="checkbox" id="electronics" name="electronics"></a></li>
-                    <li><a href="#"><label for "books">Books</label>
-                    <input type="checkbox" id="books" name="books"></a></li>
+                        <li><a href="#"><label for "clothing">Slytherin</label>
+                        <input type="checkbox" id="clothing" name="clothing"></a></li>
+                        <li><a href="#"><label for "electronics">Hufflepuff</label>
+                        <input type="checkbox" id="electronics" name="electronics"></a></li>
+                        <li><a href="#"><label for "books">Ravenclaw</label>
+                        <input type="checkbox" id="books" name="books"></a></li>
                     </ul>
                     
                   </div>

@@ -471,7 +471,7 @@ fieldset {
   grid-column-start: 1;
   grid-column-end: 7;
 }
-.portalbutton{
+.portalbutton {
   padding-top: 15px;
 }
 #piechart_3d {
@@ -884,6 +884,18 @@ input {
   right: 5px;
 }
 /* price slider */
+
+/*categories*/
+#all {
+}
+#vehicle {
+}
+#clothing {
+}
+#electronics {
+}
+#books {
+}
 
 /* --------------- Student/Marketplace Flexbox ------------------ */
 .cards {
