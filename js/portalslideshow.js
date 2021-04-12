@@ -4,20 +4,14 @@ window.addEventListener("load", function(){
   let prev = document.querySelector(".prev");
   let listingID = document.querySelectorAll('[data-listingID]');
   let ID;
-  let replaceurl;
-  let attributes = new Array;
+  let attributes = [];
   for (g = 0; g < listingID.length; g++) {
     attributes.push(listingID[g].getAttribute("data-listingID"));
   }
-  if (window.location.href.indexOf("www") !== -1) {
-    replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";
-  }else{
-    replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";
-  }
-  let removedURL = window.location.href.replace(replaceurl,'');
+  let removedURL = window.location.href.replace(location.protocol + '//' + location.host + location.pathname + "?listingIndex=",'');
   let url = removedURL.replace("#portalmarketplacetitle", "");
-  let counter = attributes.indexOf(url) == -1 ? 0 : attributes.indexOf(url);
-  var slideIndex = attributes.indexOf(url) == -1 ? 1 : attributes.indexOf(url) +1;
+  let counter = attributes.indexOf(url) === -1 ? 0 : attributes.indexOf(url);
+  var slideIndex = attributes.indexOf(url) === -1 ? 1 : attributes.indexOf(url) +1;
   showSlides(slideIndex);
 
   // Next/previous controls
@@ -30,7 +24,7 @@ window.addEventListener("load", function(){
   });
   prev.addEventListener("click", function plusSlides(){
     showSlides(slideIndex += -1);
-    counter = counter == 0 ? listingID.length -1 : counter - 1;
+    counter = counter === 0 ? listingID.length -1 : counter - 1;
     console.log(counter);
     ID = listingID[counter].getAttribute("data-listingID");
     window.location.href = "studentportal.php?listingIndex="+ID+"#portalmarketplacetitle";
