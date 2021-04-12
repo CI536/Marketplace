@@ -591,6 +591,9 @@ fieldset {
   max-width: 100%;
   resize: none;
 }
+#modalform [type="number"] {
+  width: 100%;
+}
 #modalform h3 {
   color: #3b4d53;
   font-weight: bold;

@@ -248,9 +248,19 @@ if (!isset($_SESSION['studentID'])) {
                             <fieldset>
                                 <h3>New Listing Upload</h3>
                                 <p>Please enter your listing bio with a count of <b>50-200 words</b> and listing image as a <b>.jpg</b> file with a minimum of <b>500x500 pixels</b> width and height.<br></p>
+                                <label class="fltlt">Listing Image</label>
                                 <input type="file" name="listingimgupload">
+                                <br />
+                                <label class="fltlt">Listing Title</label>
+                                <br />
                                 <input type="text" name="listingtitleupload" placeholder="Type your listing title here...">
+                                <br />
+                                <label class="fltlt">Listing Price</label>
+                                <br />
                                 <input type="number" min="0.00" step="0.01" name="listingpriceupload" placeholder="Type your listing price here...">
+                                <br />
+                                <label class="fltlt">Listing Description</label>
+                                <br />
                                 <textarea type="text" name="listingbioupload" placeholder="Type your listing bio here...."></textarea>
                                 <input name="newlistingsubmit" type="submit" value="Submit">
                             </fieldset>
