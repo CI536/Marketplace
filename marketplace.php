@@ -7,6 +7,7 @@
         <title>placeholder Marketplace</title>
         <link href="css/normalize.css" rel="stylesheet" />
         <link href="css/stylesheet.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src ="js/searchBar.js"></script>
@@ -24,9 +25,10 @@
                          name="searchBar"
                          id="searchBar" 
                          placeholder="Search">
+                    <button class="searchBtn"><i class="fa fa-search"></i></button>
                     </div>
                     <a href="#">Notifications</a>
-                    <a href="#">Basket</a>
+                    <a href="#">Saved Items</a>
                     <a href="#">+ Create New Listing</a>
                     
                     <h3>Order by</h3>
@@ -39,17 +41,14 @@
                         </div>
                     </div></li>
                         <li> <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">Price: lower</button>
+                        <button onclick="myFunction()" class="dropbtn">Price: low to high</button>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="#">Price: lower</a>
-                            <a href="#">Price: higher</a>
+                            <a href="#">Price: low to high</a>
+                            <a href="#">Price: high to low</a>
                         </div>
                     </div></li>
                             
                     </ul>
-                    
-                   
-                
                     
                     <h3>Filter by</h3>
                     

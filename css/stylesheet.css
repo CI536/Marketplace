@@ -1,11 +1,15 @@
 /* ------------ Header Styling -------------------- */
 header {
   background-color: white;
+  width: 100%;
   padding-top: 8px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 1%;
   line-height: 1.6;
+  border-bottom: 0.5px solid lightgray;
+  position: fixed;
+  z-index: 100;
 }
 .nav {
   font-family: "Josefin Sans", sans-serif;
@@ -829,9 +833,9 @@ fieldset {
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 250px; /* Set the width of the sidebar */
-  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  top: 46px; /* Stay at the top */
   left: 0;
   background-color: #e9e9e9;
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -880,25 +884,15 @@ input {
   position: relative;
 }
 
-#searchWrapper::after {
-  content: "🔍";
+.searchBtn {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 2px;
+  right: 0;
+  border-style: none;
+  color: #3b4d53;
+  background-color: white;
 }
 /* price slider */
-
-/*categories*/
-#all {
-}
-#vehicle {
-}
-#clothing {
-}
-#electronics {
-}
-#books {
-}
 
 /* --------------- Student/Marketplace Flexbox ------------------ */
 .cards {
@@ -969,6 +963,7 @@ input {
 /* ------------- Responsivety Styling --------------------- */
 .headergrid {
   grid-area: header;
+  margin-bottom: 35px;
 }
 .leftgrid {
   grid-area: left;
@@ -1131,6 +1126,11 @@ input {
     top: 0;
     left: 0;
     transform: translate(0, 0);
+  }
+}
+@media screen and (min-width: 1600px) {
+  #charactersList {
+    max-width: 80%;
   }
 }
 /* ------------------------------------------------ */
