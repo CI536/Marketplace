@@ -10,6 +10,7 @@ window.addEventListener("load", function(){
   let listingupdate = document.querySelector(".listingupdate");
   let listingupload = document.querySelector(".listingupload");
   let listingsubmit = document.querySelector("#newlisting-submit");
+  let ID;
   if (window.location.href.indexOf("www") !== -1) {
     replaceurl = "placeholderURL/php/studentportal.php?listingIndex=";
     senturl = "placeholderURL/php/studentportal.php?sent";
@@ -24,15 +25,16 @@ window.addEventListener("load", function(){
     listingurl = "placeholderURL/php/studentportal.php?emptymarketplace";
   }
   let listingID = document.querySelectorAll('[data-listingID]');
-  let removedURL = window.location.href.replace(replaceurl,'');
-  let url = removedURL.replace("#portalmarketplacetitle", "");
-  let ID;
-  let attributes = [];
-  for (let g = 0; g < listingID.length; g++) {
-    attributes.push(listingID[g].getAttribute("data-listingID"));
+  if (document.querySelectorAll('[data-listingID]').length !== 0){
+    let removedURL = window.location.href.replace(replaceurl,'');
+    let url = removedURL.replace("#portalmarketplacetitle", "");
+    let attributes = [];
+    for (let g = 0; g < listingID.length; g++) {
+      attributes.push(listingID[g].getAttribute("data-listingID"));
+    }
+    let index = attributes.indexOf(url) === -1 ? 0 : attributes.indexOf(url);
+    ID = listingID[index].getAttribute("data-listingID");
   }
-  let index = attributes.indexOf(url) === -1 ? 0 : attributes.indexOf(url);
-  ID = listingID[index].getAttribute("data-listingID");
   for (let i=0; i < changelisting.length; i++) {
     changelisting[i].addEventListener("click", function(){
       window.history.pushState("object", "changelisting", "?listingIndex="+ID);

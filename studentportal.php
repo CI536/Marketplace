@@ -15,7 +15,7 @@ if (!isset($_SESSION['studentID'])) {
                 <div class="mySlides fade">
                     <div class="changecontentcontainer">
                         <div class="changecontent">
-                            <img class="slideIMG" src="studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'.jpg" alt="'.$row['listingName'].' Listing Image">
+                            <img class="slideIMG" src="studentdata/'.$_SESSION['pathName'].'/marketplace/'.$row['fileName'].'" alt="'.$row['listingName'].' Listing Image">
                         </div>
                         <div class="changecontentmiddle">
                             <div class="changecontenttext" id="changelisting" data-change="change'.$row['listingID'].'">Change Content</div>
