@@ -107,11 +107,19 @@ window.addEventListener("load", function(){
     $('input[type="checkbox"]').on('change', function() {
        $(showAll).not(this).prop('checked', false);
     });
+    // Set showAll to checked when all other boxes are unchecked
+    $('.preventUncheck').on('change', function(e) {
+        if ($('.preventUncheck:checked').length == 0 && !this.checked)
+        	$(showAll).prop('checked', true);
+    });
+    
     
     // 'Show all' filter
     showAll.addEventListener('change', function(){
         if (this.checked){
-         loadCharacters();
+          filters.house =[];
+          console.log(filters.house);
+          loadCharacters();
         }
     });
     
@@ -120,6 +128,7 @@ window.addEventListener("load", function(){
          if (this.checked){
             // Push category to the array of filters
             filters.house.push("Gryffindor");
+            console.log(filters.house);
         } else {
             // Remove from array when box is unchecked
             let arr = filters.house;
@@ -139,6 +148,7 @@ window.addEventListener("load", function(){
          if (this.checked){
             // Push category to the array of filters
             filters.house.push("Slytherin");
+            console.log(filters.house);
         } else {
             // Remove from array when box is unchecked
             let arr = filters.house;
@@ -158,6 +168,7 @@ window.addEventListener("load", function(){
         if (this.checked){
             // Push category to the array of filters
             filters.house.push("Hufflepuff");
+            console.log(filters.house);
         } else {
             // Remove from array when box is unchecked
             let arr = filters.house;
@@ -177,6 +188,7 @@ window.addEventListener("load", function(){
         if (this.checked){
             // Push category to the array of filters
             filters.house.push("Ravenclaw");
+            console.log(filters.house);
         } else {
             // Remove from array when box is unchecked
             let arr = filters.house;

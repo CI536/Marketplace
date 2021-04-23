@@ -19,8 +19,9 @@
             <!-- Header end -->
             <!-- Left start -->
             <div class="leftgrid">
-                <div class="sidenav">
-                    <div id="searchWrapper">
+                <div class="sidenavContainer">
+                    <div class = "sidenav">
+                         <div id="searchWrapper">
                         <input type="text" 
                          name="searchBar"
                          id="searchBar" 
@@ -61,18 +62,20 @@
                     <h4>Category</h4>
                     <ul>
                         <li><a href="#"><label for "all">Show all</label>
-                        <input type="checkbox" id="all" name="all" checked></a></li>
+                        <input type="checkbox" class="preventUncheck" id="all" name="all" checked></a></li>
                         <li><a href="#"><label for "vehicle">Gryffindor</label>
-                        <input type="checkbox" id="vehicle" name="vehicle"></a></li>
+                        <input type="checkbox" class="preventUncheck" id="vehicle" name="vehicle"></a></li>
                         <li><a href="#"><label for "clothing">Slytherin</label>
-                        <input type="checkbox" id="clothing" name="clothing"></a></li>
+                        <input type="checkbox" class="preventUncheck" id="clothing" name="clothing"></a></li>
                         <li><a href="#"><label for "electronics">Hufflepuff</label>
-                        <input type="checkbox" id="electronics" name="electronics"></a></li>
+                        <input type="checkbox" class="preventUncheck" id="electronics" name="electronics"></a></li>
                         <li><a href="#"><label for "books">Ravenclaw</label>
-                        <input type="checkbox" id="books" name="books"></a></li>
+                        <input type="checkbox" class="preventUncheck" id="books" name="books"></a></li>
                     </ul>
                     
                   </div>
+                    </div>
+                   
             </div>
             <!-- Left end -->
             <!-- right start -->
@@ -80,11 +83,12 @@
             <!-- Body start -->
             <div class="bodygrid">
                 <ul class = cards id="charactersList"></ul>
-            </div>
-            <!-- Body end -->
-            <!-- Footer start -->
+                <!-- Footer start -->
             <?php include 'footer.php' ?>
             <!-- Footer end -->
+            </div>
+            <!-- Body end -->
+            
         </div>
     </body>
 </html>
