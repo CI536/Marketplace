@@ -60,7 +60,12 @@ window.addEventListener("load", function(){
     bioupdate.style.display = 'none';
     listingupdate.style.display = 'none';
   });
-
+  if (window.location.href.includes("marketplacenewprod")){
+    modalbg.style.display = 'flex';
+    profileupdate.style.display = 'none';
+    bioupdate.style.display = 'none';
+    listingupdate.style.display = 'none';
+  }
   changebio.addEventListener("click", function(){
     window.history.pushState("string", "changeimage", "?changebio");
     modalbg.style.display = 'flex';

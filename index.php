@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src ="js/searchBar.js"></script>
+        <script src ="js/marketplace-newprod.js"></script>
     </head>
     <body>
         <div class="marketplaceContainer">
@@ -31,7 +32,9 @@
                     <a href="#">Notifications</a>
                     <a href="#">Saved Items</a>
                     <a href="#">Create New Listing</a>
-                    
+                    <form class="fltrt portalbutton" action="" method="post">
+                        <input type="submit" value="New Listing" name="newlisting-submit" id="newlisting-submit">
+                    </form>
                     <h3>Order by</h3>
                     <ul>
                         <li><div class="dropdown">
