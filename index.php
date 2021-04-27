@@ -29,10 +29,7 @@
                          placeholder="Search">
                     <button class="searchBtn"><i class="fa fa-search"></i></button>
                     </div>
-                    <a href="#">Notifications</a>
-                    <a href="#">Saved Items</a>
-                    <a href="#">Create New Listing</a>
-                    <form class="fltrt portalbutton" action="" method="post">
+                    <form class="portalbutton" action="" method="post">
                         <input type="submit" value="New Listing" name="newlisting-submit" id="newlisting-submit">
                     </form>
                     <h3>Order by</h3>
