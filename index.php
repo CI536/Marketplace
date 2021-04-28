@@ -82,6 +82,22 @@
            
             <!-- Body start -->
             <div class="bodygrid">
+                <?php
+                $connection = mysqli_connect('localhost', 'root', ''); //The Blank string is the password
+                mysqli_select_db($connection, 'db');
+                $query = "SELECT * FROM marketplace";
+                $result = mysqli_query($connection, $query);
+                $array = array();
+                while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
+                    $array[] = $row;
+                }
+    
+                $fp = fopen('products.json', 'w');
+                fwrite($fp, print_r(json_encode($array), TRUE));
+                fclose($fp);
+                
+                mysqli_close($connection); //Make sure to close out the database connection
+                    ?>
                 <ul class = cards id="charactersList"></ul>
                 <!-- Footer start -->
             <?php include 'footer.php' ?>

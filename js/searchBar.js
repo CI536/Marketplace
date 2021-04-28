@@ -69,9 +69,23 @@ window.addEventListener("load", function(){
     //TODO: implement our own API
     const loadCharacters = async () => {
         try {
-            const res = await fetch('https://hp-api.herokuapp.com/api/characters'); //Harry potter API
-            hpCharacters = await res.json();
-            displayCharacters(hpCharacters);
+            function readTextFile(file, callback) {
+                var rawFile = new XMLHttpRequest();
+                rawFile.overrideMimeType("application/json");
+                rawFile.open("GET", file, true);
+                rawFile.onreadystatechange = function() {
+                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                        callback(rawFile.responseText);
+                    }
+                }
+                rawFile.send(null);
+            }
+            
+            readTextFile("products.json", function(text){
+                var hpCharacters = JSON.parse(text);
+                displayCharacters(hpCharacters);
+                console.log(hpCharacters)
+            });
         } catch (err) {
             console.error(err);
         }
@@ -85,9 +99,9 @@ window.addEventListener("load", function(){
                 <li class="card">
                   <div class="card-content">
                     <a href="studentdata/placeholder/marketplace/listingpage.php">
-                        <h2>${character.name}</h2>
-                        <p>House: ${character.house}</p>
-                        <img src="${character.image}"></img>
+                        <h2>${character.listingName}</h2>
+                        <p>${character.listingPrice}</p>
+                        <img src="images/${character.fileName}"></img>
                     </a>
                   </div>
                 </li>
