@@ -31,10 +31,10 @@
             <div class="bodygrid">
                 <div class="formcontainer">
                     <form id="form" name="form" action="php/login.inc.php" method="post">
-                        <h3>- STUDENT PORTAL -</h3>
+                        <h3>- LOG IN -</h3>
                         <fieldset>
-                            <legend>User Name</legend>
-                            <input type="text" name="mailuid" id="username" placeholder="Your user name here">
+                            <legend>Email address</legend>
+                            <input type="text" name="mailuid" id="username" placeholder="Your email address here">
                             <span class="username_error"></span>
                         </fieldset>
                         <fieldset>
@@ -48,7 +48,7 @@
                         <fieldset>
                             <input name="login-submit" type="submit" id="login-submit" value="SIGN IN" />
                         </fieldset>
-                        <div class="g-recaptcha" data-sitekey="6LcjIrQZAAAAAPLDOkUJbPb7mal9RBp7llnbZ9Lp"></div>
+                        <div class="g-recaptcha" data-sitekey="6LfVNnQaAAAAADRv-Aje12JR733tVWudQNrHTxm1"></div>
                     </form>
                 </div>
             </div>

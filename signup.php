@@ -17,40 +17,55 @@
     <!-- Header end -->
     <!-- Left start -->
     <div class="leftgrid">
+        <img id="placeholder-logo-left" src="images/placeholder-logo-left.png" alt="placeholder Logo Left" />
     </div>
     <!-- Left end -->
     <!-- right start -->
     <div class="rightgrid">
+        <img id="placeholder-logo-right" src="images/placeholder-logo-right.png" alt="placeholder Logo Right" />
     </div>
     <!-- right end -->
     <!-- Body start -->
     <div class="bodygrid">
+        
         <div id="wrapper">
-            <section>
-                <form class="form-signup" action="php/signup.inc.php" method="post">
+
+            <div class="formsignup">
+                
+                <form id="form" action="php/signup.inc.php" method="post">
+                    
+                    <h3>- REGISTER -</h3>
+                    
                     <label>
-                        <p>Username</p>
                         <input type="text" name="uid" placeholder="Full Name">
                     </label>
+                    
                     <label>
-                        <p>Student Number</p>
                         <input  type="text" name="studentNo" placeholder="Student Number">
                     </label>
+                    
                     <label>
-                        <p>E-mail</p>
                         <input type="text" name="email" placeholder="E-mail">
                     </label>
+                    
                     <label>
-                        <p>Password</p>
                         <input type="text" name="pwd"  placeholder="Password">
                     </label>
+                    
                     <label>
-                        <p>Repeat Password</p>
                         <input type="text" name="pwd-repeat" placeholder="Repeat Password">
                     </label>
-                    <button type="submit" name="signup-submit">Signup</button>
+                    <br>
+                    <a href="login.php">Already registered? Log in here</a>
+                    
+                    <fieldset>
+                            <input name="signup-submit" type="submit" id="signup-submit" value="SIGN UP" />
+                    </fieldset>
+                    
                 </form>
-            </section>
+                
+            </div>
+
         </div>
     </div>
     <!-- Body end -->
