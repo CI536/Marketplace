@@ -281,10 +281,10 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.formsignup input{
-    margin:10px;
-}
+
 .name_error,
+.studentNo_error,
+.passwordRepeat_error,
 .email_error,
 .subject_error,
 .message_error,
@@ -1111,8 +1111,7 @@ input {
   #form {
   background: #f9f9f9;
   padding: 10px;
-  margin: 0;
-}
+  }
 }
 /*		 	Mobile				 */
 @media screen and (max-width: 40em) {

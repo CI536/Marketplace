@@ -9,6 +9,7 @@
     <link href="css/stylesheet.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="js/fadein.js"></script>
+    <script src="js/register.js"></script>
 </head>
 <body>
 <div class="container">
@@ -36,26 +37,30 @@
                     
                     <h3>- REGISTER -</h3>
                     
-                    <label>
-                        <input type="text" name="uid" placeholder="Full Name">
-                    </label>
+                    <fieldset>
+                        <input type="text" name="uid" id="uid" placeholder="Full Name">
+                    </fieldset>
                     
-                    <label>
-                        <input  type="text" name="studentNo" placeholder="Student Number">
-                    </label>
+                    <fieldset>
+                        <input  type="text" name="studentNo" id="studentNo" placeholder="Student Number">
+                        <span class="studentNo_error"></span>
+                    </fieldset>
                     
-                    <label>
-                        <input type="text" name="email" placeholder="E-mail">
-                    </label>
+                    <fieldset>
+                        <input type="text" name="email" id="email" placeholder="Student e-mail">
+                        <span class="email_error"></span>
+                    </fieldset>
                     
-                    <label>
-                        <input type="text" name="pwd"  placeholder="Password">
-                    </label>
+                    <fieldset>
+                        <input type="text" name="pwd" id="pwd" placeholder="Password">
+                        <span class="password_error"></span>
+                    </fieldset>
                     
-                    <label>
-                        <input type="text" name="pwd-repeat" placeholder="Repeat Password">
-                    </label>
-                    <br>
+                    <fieldset>
+                        <input type="text" name="pwd-repeat" id="pwd-repeat" placeholder="Repeat Password">
+                         <span class="passwordRepeat_error"></span>
+                    </fieldset>
+
                     <a href="login.php">Already registered? Log in here</a>
                     
                     <fieldset>

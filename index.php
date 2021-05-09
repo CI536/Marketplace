@@ -31,7 +31,7 @@
                 <?php
                 $connection = mysqli_connect('localhost', 'root', ''); //The Blank string is the password
                 mysqli_select_db($connection, 'db');
-                $query = "SELECT * FROM ad900_marketplace";
+                $query = "SELECT * FROM marketplace";
                 $result = mysqli_query($connection, $query);
                 $array = array();
                 while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
