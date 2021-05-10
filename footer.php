@@ -1,8 +1,6 @@
 <div class="footergrid">
     <footer>
-        <a href="index.php">Home</a>
-        <p class="navbreak">.</p>
-        <a href="marketplace.php">Marketplace</a>
+        <a href="index.php">Marketplace</a>
         <p class="navbreak">.</p>
         <?php
         if (isset($_SESSION['studentID'])) {
