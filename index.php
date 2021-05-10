@@ -20,7 +20,7 @@ error_reporting(E_ALL);
     <body>
         <div class="marketplaceContainer">
             <!-- Header start -->
-            <?php include 'header.php' ?>
+                <?php include 'header.php' ?>
             <!-- Header end -->
             <!-- Left start -->
             <div class="leftgrid">
@@ -57,12 +57,11 @@ error_reporting(E_ALL);
                 }
                     ?>
                 <ul class = cards id="charactersList"></ul>
-                <!-- Footer start -->
-            <?php include 'footer.php' ?>
-            <!-- Footer end -->
             </div>
             <!-- Body end -->
-            
+            <!-- Footer start -->
+            <?php include 'footer.php' ?>
+            <!-- Footer end -->
         </div>
     </body>
 </html>
