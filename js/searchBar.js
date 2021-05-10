@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-    const charactersList = document.getElementById('charactersList');
+    const productsList = document.getElementById('productsList');
     const searchBar = document.getElementById('searchBar');
     const searchBtn = document.querySelector('.searchBtn');
     
@@ -11,10 +11,10 @@ window.addEventListener("load", function(){
     const books = document.querySelector("input[name=books]");
     
     let filters = {
-         name: [],
-         house: [],
+         listingName: [],
+         category: [],
     };
-    let hpCharacters = [];
+    let products = [];
     
     console.log(filters);
     
@@ -40,34 +40,46 @@ window.addEventListener("load", function(){
         });
       });
     }
-
-    searchBar.addEventListener('keyup', (e) => {
-        
-         delete filters.name;
-         if (event.keyCode === 13) {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            searchBtn.click(e);
-          }
-    });
+            
     
-    //Search button
-    searchBtn.addEventListener("click", function(e){
-        // Filter the results by name
-        searchString = searchBar.value; // Get input value
-        // Add name filter only if searchBar input is not empty
-        if (searchString.length!=0){ 
-           filters.name = [searchString];
-        }
-        // Refresh results
-        filteredItems = filterPlainArray(hpCharacters, filters);
-        displayCharacters(filteredItems);
+searchBar.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase(); // Get input value
+        // Filter the results by name and house. Always convert to lowercase
+        const filteredProducts = products.filter((product) => {
+           return ( 
+                product.listingName.toLowerCase().includes(searchString)
+            );
+        });
+
+        console.log(filteredProducts);
+        displayProducts(filteredProducts);
     });
+    // searchBar.addEventListener('keyup', (e) => {
+        
+    //      delete filters.listingName;
+    //      if (event.keyCode === 13) {
+    //         // Cancel the default action, if needed
+    //         event.preventDefault();
+    //         // Trigger the button element with a click
+    //         searchBtn.click(e);
+    //       }
+    // });
+    
+    // //Search button
+    // searchBtn.addEventListener("click", function(e){
+    //     // Filter the results by name
+    //     searchString = searchBar.value; // Get input value
+    //     // Add name filter only if searchBar input is not empty
+    //     if (searchString.length!=0){ 
+    //       filters.listingName = [searchString];
+    //     }
+    //     // Refresh results
+    //     filteredItems = filterPlainArray(products, filters);
+    //     displayProducts(filteredItems);
+    // });
     
     //load items from the API
-    //TODO: implement our own API
-    const loadCharacters = async () => {
+    const loadProducts = async () => {
         try {
             function readTextFile(file, callback) {
                 var rawFile = new XMLHttpRequest();
@@ -82,9 +94,9 @@ window.addEventListener("load", function(){
             }
             
             readTextFile("products.json", function(text){
-                var hpCharacters = JSON.parse(text);
-                displayCharacters(hpCharacters);
-                console.log(hpCharacters)
+                var products = JSON.parse(text);
+                displayProducts(products);
+                console.log(products)
             });
         } catch (err) {
             console.error(err);
@@ -92,23 +104,23 @@ window.addEventListener("load", function(){
     };
 
     //get details from API and inject them in HTML
-    const displayCharacters = (characters) => {
-        const htmlString = characters
-            .map((character) => {
+    const displayProducts = (products) => {
+        const htmlString = products
+            .map((product) => {
                 return `
                 <li class="card">
                   <div class="card-content">
                     <a href="studentdata/placeholder/marketplace/listingpage.php">
-                        <h2>${character.listingName}</h2>
-                        <p>${character.listingPrice}</p>
-                        <img src="images/${character.fileName}"></img>
+                        <h2>${product.listingName}</h2>
+                        <p>${product.listingPrice}</p>
+                        <img src="images/${product.fileName}"></img>
                     </a>
                   </div>
                 </li>
             `;
             })
             .join('');
-        charactersList.innerHTML = htmlString;
+        productsList.innerHTML = htmlString;
     };
     
     // Categories
@@ -131,9 +143,9 @@ window.addEventListener("load", function(){
     // 'Show all' filter
     showAll.addEventListener('change', function(){
         if (this.checked){
-          filters.house =[];
-          console.log(filters.house);
-          loadCharacters();
+          filters.category =[];
+          console.log(filters.category);
+          loadProducts();
         }
     });
     
@@ -141,84 +153,84 @@ window.addEventListener("load", function(){
     vehicle.addEventListener('change', function(){
          if (this.checked){
             // Push category to the array of filters
-            filters.house.push("Gryffindor");
-            console.log(filters.house);
+            filters.category.push("vehicles");
+            console.log(filters.category);
         } else {
             // Remove from array when box is unchecked
-            let arr = filters.house;
+            let arr = filters.category;
             for( var i = 0; i < arr.length; i++){ 
-                if ( arr[i] === "Gryffindor") { 
+                if ( arr[i] === "vehicles") { 
                     arr.splice(i, 1); 
                 }
             }
         }
         // Apply all filters and display
-        filteredItems = filterPlainArray(hpCharacters, filters);
-        displayCharacters(filteredItems);
+        filteredItems = filterPlainArray(products, filters);
+        displayProducts(filteredItems);
     });
     
     // Clothing filter
     clothing.addEventListener('change', function(){
          if (this.checked){
             // Push category to the array of filters
-            filters.house.push("Slytherin");
-            console.log(filters.house);
+            filters.category.push("Clothes");
+            console.log(filters.category);
         } else {
             // Remove from array when box is unchecked
-            let arr = filters.house;
+            let arr = filters.category;
             for( var i = 0; i < arr.length; i++){ 
-                if ( arr[i] === "Slytherin") { 
+                if ( arr[i] === "Clothes") { 
                     arr.splice(i, 1); 
                 }
             }
         }
         // Apply all filters and display
-        filteredItems = filterPlainArray(hpCharacters, filters);
-        displayCharacters(filteredItems);
+        filteredItems = filterPlainArray(products, filters);
+        displayProducts(filteredItems);
     });
     
     // Electronics filter
     electronics.addEventListener('change', function(){
         if (this.checked){
             // Push category to the array of filters
-            filters.house.push("Hufflepuff");
-            console.log(filters.house);
+            filters.category.push("electronics");
+            console.log(filters.category);
         } else {
             // Remove from array when box is unchecked
-            let arr = filters.house;
+            let arr = filters.category;
             for( var i = 0; i < arr.length; i++){ 
-                if ( arr[i] === "Hufflepuff") { 
+                if ( arr[i] === "electronics") { 
                     arr.splice(i, 1); 
                 }
             }
         }
         // Apply all filters and display
-        filteredItems = filterPlainArray(hpCharacters, filters);
-        displayCharacters(filteredItems);
+        filteredItems = filterPlainArray(products, filters);
+        displayProducts(filteredItems);
     });
         
     // Books filter
     books.addEventListener('change', function(){
         if (this.checked){
             // Push category to the array of filters
-            filters.house.push("Ravenclaw");
-            console.log(filters.house);
+            filters.category.push("Books");
+            console.log(filters.category);
         } else {
             // Remove from array when box is unchecked
-            let arr = filters.house;
+            let arr = filters.category;
             for( var i = 0; i < arr.length; i++){ 
-                if ( arr[i] === "Ravenclaw") { 
+                if ( arr[i] === "Books") { 
                     arr.splice(i, 1); 
                 }
             }
         }
         // Apply all filters and display
-        filteredItems = filterPlainArray(hpCharacters, filters);
-        displayCharacters(filteredItems);
+        filteredItems = filterPlainArray(products, filters);
+        displayProducts(filteredItems);
     });
 
     
-    loadCharacters();
+    loadProducts();
 
 });
 

@@ -1,4 +1,4 @@
- <div class="sidenavContainer">
+<div class="sidenavContainer">
     <div class = "sidenav">
          <div id="searchWrapper">
         <input type="text" 
@@ -8,13 +8,14 @@
     <button class="searchBtn"><i class="fa fa-search"></i></button>
     </div>
     <!-- Home link -->
-    <a href="index.php" class="headernav">Home</a>
+    <a href="index.php">Home</a>
     
     <!-- Log in/ Profile link -->
     <?php
         if (isset($_SESSION['studentID'])) {
             echo '<a href="studentportal.php">Profile</a>';
-            echo '<form class="portalbutton" action="" method="post">
+            //new listing button appearing when user is logged in
+            echo '<form class="portalbutton" id = "sidebar_button" action="" method="post">
                     <input type="submit" value="New Listing" name="newlisting-submit" id="newlisting-submit"> 
                  </form>';
         }else{
@@ -22,32 +23,29 @@
         }
     ?>
     
-    <!-- New Listing Button -->
+   
    
     
-    <h3>Order by</h3>
-    <ul>
-        <li><div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Publish date: latest</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Publish date: latest</a>
-            <a href="#">Publish date: oldest</a>
-        </div>
-    </div></li>
-        <li> <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Price: low to high</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Price: low to high</a>
-            <a href="#">Price: high to low</a>
-        </div>
-    </div></li>
+    <!--<h3>Order by</h3>-->
+    <!--<ul>-->
+    <!--    <li><div class="dropdown">-->
+    <!--    <button onclick="myFunction()" class="dropbtn">Publish date: latest</button>-->
+    <!--    <div id="myDropdown" class="dropdown-content">-->
+    <!--        <a href="#">Publish date: latest</a>-->
+    <!--        <a href="#">Publish date: oldest</a>-->
+    <!--    </div>-->
+    <!--</div></li>-->
+    <!--    <li> <div class="dropdown">-->
+    <!--    <button onclick="myFunction()" class="dropbtn">Price: low to high</button>-->
+    <!--    <div id="myDropdown" class="dropdown-content">-->
+    <!--        <a href="#">Price: low to high</a>-->
+    <!--        <a href="#">Price: high to low</a>-->
+    <!--    </div>-->
+    <!--</div></li>-->
             
-    </ul>
+    <!--</ul>-->
     
     <h3>Filter by</h3>
-    
-    <h4>Location</h4>
-    <input type="text" id="postcode" placeholder="Search by postcode">
     
     <h4>Price</h4>
     <input type="range" id="amount">

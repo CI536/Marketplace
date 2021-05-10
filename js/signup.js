@@ -6,6 +6,7 @@ window.addEventListener("load", function(){
 	let username_error = document.querySelector(".username_error");
 	let studentNO = document.querySelector("#studentNO");
 	let studentNO_error = document.querySelector(".studentNO_error");
+
 	let password = document.querySelector("#password");
 	let password_error = document.querySelector(".password_error");
 	let password2 = document.querySelector("#password2");
@@ -39,13 +40,15 @@ window.addEventListener("load", function(){
 		}
 		// studentNO validation
 		if (studentNO.value === "") {
-			studentNO_error.textContent = "A username is required.";
+			studentNO_error.textContent = "A student number is required.";
 		}else{
-			// check if username only contains letters and spaces
-			if (!studentNOre.test(username.value)) {
-				studentNO_error.textContent = "Invalid username entered.";
+			// check if StudentNO only contains letters and spaces
+			if (!studentNOre.test(studentNO.value)) {
+				studentNO_error.textContent = "Invalid student number entered.";
 			}
 		}
+		
+
 		// password validation
 		if (password.value === "") {
 			password_error.textContent = "A password is required.";

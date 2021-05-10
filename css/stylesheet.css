@@ -72,10 +72,9 @@ header {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   z-index: 1;
-
 }
 .dropdown-content a {
   color: black;
@@ -256,8 +255,8 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.formsignup{
- margin: 0;
+.formsignup {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -847,12 +846,17 @@ fieldset {
 /*----------------Marketplace side navigation bar-----------------*/
 .sidenavContainer {
   height: 100%;
-
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 46px;
-  background-color: #e9e9e9;
+  background-color: #3b4d53;
   overflow-x: hidden; /* Disable horizontal scroll */
+}
+.sidenav a,
+.sidenav h3,
+.sidenav h4 {
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
 }
 .sidenav {
   height: 87%;
@@ -864,21 +868,25 @@ fieldset {
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 0;
   text-decoration: none;
   font-size: 15px;
-  color: black;
   display: block;
 }
 /* Active links */
 .sidenav a.active {
-  background-color: #2164f3;
+  background-color: #d97a04;
   color: white;
+}
+
+/*Button style*/
+.sidebarButton {
+  background-color: #d97a04;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  background-color: #217cf3;
+  background-color: #d97a04;
   color: #f1f1f1;
 }
 .sidenav ul {
@@ -923,7 +931,7 @@ input {
 }
 .card {
   display: flex;
-  max-width: 190px;
+  max-width: 220px;
   margin: 1.25em 1.25em 0.3em 0;
 }
 .card-content {
@@ -1082,7 +1090,7 @@ input {
     display: none;
   }
   .card {
-    width: 50%;
+    width: 100%;
   }
   .student-content {
     display: initial;
@@ -1109,8 +1117,8 @@ input {
     transform: translate(0, 0);
   }
   #form {
-  background: #f9f9f9;
-  padding: 10px;
+    background: #f9f9f9;
+    padding: 10px;
   }
 }
 /*		 	Mobile				 */
@@ -1161,7 +1169,7 @@ input {
 }
 /* Large monitors */
 @media screen and (min-width: 1600px) {
-  #charactersList {
+  #productsList {
     max-width: 80%;
   }
 }

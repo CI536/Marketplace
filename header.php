@@ -17,7 +17,7 @@
                         <img class="navmenu" src="images/icons/menu-icon.png" alt="Menu Icon" />
                         <div class="dropdown-content">
                             <!--  show side bar if page is home -->
-                            <?php include 'sidebar.php'; ?>
+                       
                         </div>
                     </div>
                 </div>
