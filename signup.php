@@ -27,29 +27,45 @@
     <div class="bodygrid">
         <div id="wrapper">
             <section>
-                <form class="form-signup" action="php/signup.inc.php" method="post">
-                    <label>
-                        <p>Username</p>
-                        <input type="text" name="uid" placeholder="Full Name">
-                    </label>
-                    <label>
-                        <p>Student Number</p>
-                        <input  type="text" name="studentNo" placeholder="Student Number">
-                    </label>
-                    <label>
-                        <p>E-mail</p>
-                        <input type="text" name="email" placeholder="E-mail">
-                    </label>
-                    <label>
-                        <p>Password</p>
-                        <input type="text" name="pwd"  placeholder="Password">
-                    </label>
-                    <label>
-                        <p>Repeat Password</p>
-                        <input type="text" name="pwd-repeat" placeholder="Repeat Password">
-                    </label>
-                    <button type="submit" name="signup-submit">Signup</button>
-                </form>
+                <div class="formcontainer">
+                    <form id="form" class="form-signup" action="php/signup.inc.php" method="post">
+                        <h3>- SIGN UP FORM -</h3>
+                        <fieldset>
+                            <label>
+                                <p>Full Name</p>
+                                <input id="username" type="text" name="uid" placeholder="Full Name">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label>
+                                <p>Student Number</p>
+                                <input id="username" type="text" name="studentNo" placeholder="Student Number">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label>
+                                <p>E-mail</p>
+                                <input id="username" type="text" name="email" placeholder="E-mail">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label>
+                                <p>Password</p>
+                                <input id="password" type="text" name="pwd"  placeholder="Password">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label>
+                                <p>Repeat Password</p>
+                                <input id="password" type="text" name="pwd-repeat" placeholder="Repeat Password">
+                            </label>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <input type="submit" name="signup-submit" value="Submit"></input>
+                        </fieldset>
+                    </form>
+                </div>
             </section>
         </div>
     </div>
