@@ -984,7 +984,7 @@ input {
 /* ------------- Responsivety Styling --------------------- */
 .headergrid {
   grid-area: header;
-  margin-bottom: 35px;
+  margin-bottom: 5%;
 }
 .leftgrid {
   grid-area: left;
