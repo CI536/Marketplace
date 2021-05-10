@@ -8,7 +8,7 @@ error_reporting(E_ALL);
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>placeholder Marketplace</title>
+        <title>Student Marketplace</title>
         <link href="css/normalize.css" rel="stylesheet" />
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
