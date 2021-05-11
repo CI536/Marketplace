@@ -50,7 +50,6 @@ searchBar.addEventListener('keyup', (e) => {
                 product.listingName.toLowerCase().includes(searchString)
             );
         });
-
         console.log(filteredProducts);
         displayProducts(filteredProducts);
     });
@@ -79,7 +78,7 @@ searchBar.addEventListener('keyup', (e) => {
     // });
     
     //load items from the API
-    const loadProducts = async () => {
+    function loadProducts(){
         try {
             function readTextFile(file, callback) {
                 var rawFile = new XMLHttpRequest();
@@ -92,16 +91,18 @@ searchBar.addEventListener('keyup', (e) => {
                 }
                 rawFile.send(null);
             }
-            
+
             readTextFile("products.json", function(text){
-                var products = JSON.parse(text);
+                products = JSON.parse(text);
                 displayProducts(products);
                 console.log(products)
             });
         } catch (err) {
             console.error(err);
         }
-    };
+    }
+
+
 
     //get details from API and inject them in HTML
     const displayProducts = (products) => {
@@ -229,9 +230,7 @@ searchBar.addEventListener('keyup', (e) => {
         displayProducts(filteredItems);
     });
 
-    
     loadProducts();
-
 });
 
 // ------------End of onload-----------
