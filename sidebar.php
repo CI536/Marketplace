@@ -22,14 +22,10 @@
             echo '<a href="studentportal.php">Log in</a>';
         }
     ?>
-
-    
-    <h3>Filter by</h3>
     
     <h4>Price</h4>
     <input type="range" id="amount">
-    
-    <h4>Category</h4>
+
     <ul>
         <li><a href="#"><label for "all">Show all</label>
         <input type="checkbox" class="preventUncheck" id="all" name="all" checked></a></li>
@@ -41,7 +37,7 @@
         <input type="checkbox" class="preventUncheck" id="electronics" name="electronics"></a></li>
         <li><a href="#"><label for "books">Books</label>
         <input type="checkbox" class="preventUncheck" id="books" name="books"></a></li>
-          <li><a href="#"><label for "books">Accessories</label>
+          <li><a href="#"><label for "accessories">Accessories</label>
         <input type="checkbox" class="preventUncheck" id="accessories" name="accessories"></a></li>
     </ul>
     

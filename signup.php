@@ -18,10 +18,12 @@
     <!-- Header end -->
     <!-- Left start -->
     <div class="leftgrid">
+        <img id="placeholder-logo-left" src="images/placeholder-logo-left.png" alt="placeholder Logo Left" />
     </div>
     <!-- Left end -->
     <!-- right start -->
     <div class="rightgrid">
+        <img id="placeholder-logo-right" src="images/placeholder-logo-right.png" alt="placeholder Logo Right" />
     </div>
     <!-- right end -->
     <!-- Body start -->
@@ -32,39 +34,28 @@
                     <form id="form" class="form-signup" action="php/signup.inc.php" method="post">
                         <h3>- SIGN UP FORM -</h3>
                         <fieldset>
-                            <label>
-                                <p>Full Name</p>
                                 <input id="name" type="text" name="uid" placeholder="Full Name">
                                 <span class="name_error"></span>
-                            </label>
                         </fieldset>
+                        
                         <fieldset>
-                            <label>
-                                <p>Student Number</p>
                                 <input id="studentNO" type="text" name="studentNo" placeholder="Student Number">
                                 <span class="studentNO_error"></span>
-                            </label>
                         </fieldset>
+                        
                         <fieldset>
-                            <label>
-                                <p>E-mail</p>
                                 <input id="username" type="text" name="email" placeholder="E-mail">
                                 <span class="username_error"></span>
-                            </label>
                         </fieldset>
+                        
                         <fieldset>
-                            <label>
-                                <p>Password</p>
                                 <input id="password" type="text" name="pwd"  placeholder="Password">
                                 <span class="password_error"></span>
-                            </label>
                         </fieldset>
+                        
                         <fieldset>
-                            <label>
-                                <p>Repeat Password</p>
                                 <input id="password2" type="text" name="pwd-repeat" placeholder="Repeat Password">
                                 <span class="password2_error"></span>
-                            </label>
                         </fieldset>
                         <br>
                         <fieldset>
