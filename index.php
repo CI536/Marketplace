@@ -23,7 +23,7 @@ error_reporting(E_ALL);
                 <?php include 'header.php' ?>
             <!-- Header end -->
             <!-- Left start -->
-            <div class="leftgrid">
+            <div id="sidebar">
                 <?php include 'sidebar.php'?>
             </div>
             <!-- Left end -->
