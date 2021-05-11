@@ -56,7 +56,7 @@ error_reporting(E_ALL);
                     mysqli_close($conn); //Make sure to close out the database connection
                 }
                     ?>
-                <ul class = cards id="productsList"></ul>
+                <ul class="cards" id="productsList"></ul>
             </div>
             <!-- Body end -->
             <!-- Footer start -->
