@@ -136,6 +136,9 @@ input[type="submit"] {
   margin-right: auto;
 }
 /* ---------------- Left Grid Styling -------------- */
+#sidebar{
+  position: relative;
+}
 .leftgrid {
   position: relative;
 }
@@ -996,6 +999,9 @@ input {
   grid-area: header;
   margin-bottom: 5%;
 }
+#sidebar{
+  grid-area: side;
+}
 .leftgrid {
   grid-area: left;
 }
@@ -1058,7 +1064,7 @@ input {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
       "header header"
-      "left body"
+      "side body"
       "footer footer";
   }
   .navmenu {
@@ -1078,6 +1084,16 @@ input {
 @media screen and (max-width: 59em) {
   .nav {
     letter-spacing: 0px;
+  }
+  .marketplaceContainer {
+    grid-template-areas:
+      "header"
+      "side"
+      "body"
+      "footer";
+  }
+  #sidebar{
+
   }
   .leftgrid {
     display: none;

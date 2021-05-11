@@ -48,7 +48,7 @@
                         <fieldset>
                             <input name="login-submit" type="submit" id="login-submit" value="SIGN IN" />
                         </fieldset>
-                        <div class="g-recaptcha" data-sitekey="6LfVNnQaAAAAADRv-Aje12JR733tVWudQNrHTxm1"></div>
+                        <div class="g-recaptcha" data-sitekey="6LcjIrQZAAAAAPLDOkUJbPb7mal9RBp7llnbZ9Lp"></div>
                     </form>
                 </div>
             </div>
