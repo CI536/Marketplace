@@ -282,8 +282,8 @@ h2 {
 }
 
 .name_error,
-.studentNo_error,
-.passwordRepeat_error,
+.studentNO_error,
+.password2_error,
 .email_error,
 .subject_error,
 .message_error,
@@ -970,24 +970,26 @@ input {
   height: 100%;
   text-decoration: none;
 }
-/*---------------------Profile-------------------------------*/
+/*---------------------Single listing page-------------------------------*/
 .profile-details {
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 .profileimg {
-  height: 80px;
-  width: 80%;
-  margin-top: 80px;
-  padding: 20px;
-  position: relative;
+  margin: 0;
+  padding: 0;
 }
 .myDetails {
   list-style-type: none;
-  margin: 50px;
+  margin: 0 0 0 15px;
+  padding: 0;
 }
 .profileText {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.5vw;
+}
+.item-details {
+  margin-top: 25px;
 }
 /* ------------- Responsivety Styling --------------------- */
 .headergrid {
@@ -1151,6 +1153,23 @@ input {
   }
   .modal-content {
     text-align: justify;
+  }
+  .profile-details {
+    margin: 50px 0;
+  }
+  .myDetails li {
+    list-style-type: none;
+    font-size: 15px;
+    margin: 0 0 0 15px;
+    padding: 0;
+  }
+  .student-content {
+    max-width: 100%;
+  }
+  .profile-slideIMG {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
 @media screen and (max-height: 900px) {
