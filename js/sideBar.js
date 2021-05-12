@@ -112,11 +112,13 @@ searchBar.addEventListener('keyup', (e) => {
         const minAmt = e.target.value;
         const maxAmt = maxPrice.value;
         const filteredPrices = products.filter((product) => {
-            if (minAmt ==="" && maxAmt !== ""){
-                product.listingPrice <= parseFloat(maxAmt);
-            }else if (minAmt ==="" && maxAmt === ""){
-                 return product.listingPrice >= 0;
-            } else if (maxAmt===""){
+            if (minAmt ===""){
+                if (maxAmt===""){
+                     return product.listingPrice >= 0;
+                }else{
+                     return product.listingPrice <= parseFloat(maxAmt);
+                }
+            }else if (maxAmt===""){
                 return product.listingPrice >= parseFloat(minAmt);
             }else{
                 return product.listingPrice >= parseFloat(minAmt) && product.listingPrice <= parseFloat(maxAmt);
@@ -134,10 +136,12 @@ searchBar.addEventListener('keyup', (e) => {
         const maxAmt = e.target.value;
         
         const filteredPrices = products.filter((product) => {
-           if (maxAmt ==="" && minAmt !== ""){
-                product.listingPrice <= minAmt;
-            }else if (maxAmt ==="" && minAmt === ""){
-                 return product.listingPrice >= 0;
+           if (maxAmt ===""){
+                if (minAmt===""){
+                     return product.listingPrice >= 0;
+                }else{
+                     return product.listingPrice >= parseFloat(minAmt);
+                }
             }else if (minAmt===""){
                 return product.listingPrice <= parseFloat(maxAmt);
             }else{
