@@ -255,6 +255,10 @@ if (!isset($_SESSION['studentID'])) {
                                 <br />
                                 <input type="text" name="listingtitleupload" placeholder="Type your listing title here...">
                                 <br />
+                                <label class="fltlt">Listing Category</label>
+                                <br />
+                                <input type="text" name="listingcategoryupload" placeholder="Type your listing category here...">
+                                <br />
                                 <label class="fltlt">Listing Price</label>
                                 <br />
                                 <input type="number" min="0.00" step="0.01" name="listingpriceupload" placeholder="Type your listing price here...">

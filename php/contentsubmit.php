@@ -22,8 +22,7 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
                     $fileNameNew = uniqid('', true);
                     $fileDest = '../studentdata/'.$_SESSION['pathName'].'/marketplace/'.$fileNameNew.".".$fileActualExt;
                     move_uploaded_file($listingimgtmpnameupload, $fileDest);
-
-                    $sql = 'INSERT INTO marketplace (studentID, listingName, fileName, listingBio, listingPrice) VALUES (?, ?, ?, ?, ?)';
+                    $sql = 'INSERT INTO marketplace (studentID, listingName, fileName, listingBio, listingPrice, category) VALUES (?, ?, ?, ?, ?, ?)';
                     if (isset($conn)) {
                         $stmt = mysqli_stmt_init($conn);
                     }else{
@@ -34,7 +33,8 @@ if(isset($_POST['biosubmit']) || isset($_POST["profilesubmit"]) || isset($_POST[
                         header("Location: ".$redirect_url."?uploadprepsqlerror");
                         exit();
                     }else{
-                        mysqli_stmt_bind_param($stmt, "isssi", $_SESSION['studentID'], $_POST['listingtitleupload'], $fileNameNew, $_POST['listingbioupload'], $_POST['listingpriceupload']);
+                        $fileNameNew = $fileNameNew.'.jpg';
+                        mysqli_stmt_bind_param($stmt, "isssis", $_SESSION['studentID'], $_POST['listingtitleupload'], $fileNameNew, $_POST['listingbioupload'], $_POST['listingpriceupload'], $_POST['listingcategoryupload']);
                         mysqli_stmt_execute($stmt);
                         header("Location: ".$redirect_url."?uploadSuccessful");
                         exit();
