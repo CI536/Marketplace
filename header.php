@@ -16,8 +16,15 @@
                     <div class="dropdown">
                         <img class="navmenu" src="images/icons/menu-icon.png" alt="Menu Icon" />
                         <div class="dropdown-content">
-                            <!--  show side bar if page is home -->
-                       
+                           <a href="index.php">MARKETPLACE</a>
+                            <br />
+                            <?php
+                                if (isset($_SESSION['studentID'])) {
+                                    echo '<a href="studentportal.php">PROFILE</a>';
+                                }else{
+                                    echo '<a href="studentportal.php">LOGIN</a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ error_reporting(E_ALL);
         <link href="css/stylesheet.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <script src ="js/searchBar.js"></script>
+        <script src ="js/sideBar.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src ="js/marketplace-newprod.js"></script>
     </head>

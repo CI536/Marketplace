@@ -24,8 +24,6 @@ header {
   color: black;
 }
 
-.socialblock {
-}
 .socialblock a {
   text-decoration: none;
 }
@@ -997,7 +995,6 @@ input {
 /* ------------- Responsivety Styling --------------------- */
 .headergrid {
   grid-area: header;
-  margin-bottom: 5%;
 }
 #sidebar{
   grid-area: side;
@@ -1010,6 +1007,7 @@ input {
 }
 .bodygrid {
   grid-area: body;
+  margin-top:5%;
 }
 .footergrid {
   grid-area: footer;
@@ -1092,9 +1090,15 @@ input {
       "body"
       "footer";
   }
-  #sidebar{
-
+  .sidenavContainer {
+      position:relative;
   }
+  .sidenav {
+  overflow-y: hidden;
+}
+  .sidenav li{
+ display:inline-flex;
+}
   .leftgrid {
     display: none;
   }
