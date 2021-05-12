@@ -3,6 +3,10 @@ window.addEventListener("load", function(){
     const searchBar = document.getElementById('searchBar');
     const searchBtn = document.querySelector('.searchBtn');
     
+    //Price
+    const minPrice = document.getElementById('min-price');
+    const maxPrice = document.getElementById('max-price');
+
     // Category boxes
     const showAll = document.querySelector("input[name=all]");
     const vehicle = document.querySelector("input[name=vehicle]");
@@ -13,7 +17,7 @@ window.addEventListener("load", function(){
     
     let filters = {
          listingName: [],
-         category: [],
+         category: []
     };
     let products = [];
     
@@ -54,30 +58,7 @@ searchBar.addEventListener('keyup', (e) => {
         console.log(filteredProducts);
         displayProducts(filteredProducts);
     });
-    // searchBar.addEventListener('keyup', (e) => {
-        
-    //      delete filters.listingName;
-    //      if (event.keyCode === 13) {
-    //         // Cancel the default action, if needed
-    //         event.preventDefault();
-    //         // Trigger the button element with a click
-    //         searchBtn.click(e);
-    //       }
-    // });
-    
-    // //Search button
-    // searchBtn.addEventListener("click", function(e){
-    //     // Filter the results by name
-    //     searchString = searchBar.value; // Get input value
-    //     // Add name filter only if searchBar input is not empty
-    //     if (searchString.length!=0){ 
-    //       filters.listingName = [searchString];
-    //     }
-    //     // Refresh results
-    //     filteredItems = filterPlainArray(products, filters);
-    //     displayProducts(filteredItems);
-    // });
-    
+
     //load items from the API
     function loadProducts(){
         try {
@@ -124,6 +105,51 @@ searchBar.addEventListener('keyup', (e) => {
             .join('');
         productsList.innerHTML = htmlString;
     };
+    
+    // Price
+    
+    minPrice.addEventListener('keyup', (e) => {
+        const minAmt = e.target.value;
+        const maxAmt = maxPrice.value;
+        const filteredPrices = products.filter((product) => {
+            if (minAmt ==="" && maxAmt !== ""){
+                product.listingPrice <= parseFloat(maxAmt);
+            }else if (minAmt ==="" && maxAmt === ""){
+                 return product.listingPrice >= 0;
+            } else if (maxAmt===""){
+                return product.listingPrice >= parseFloat(minAmt);
+            }else{
+                return product.listingPrice >= parseFloat(minAmt) && product.listingPrice <= parseFloat(maxAmt);
+            }
+           
+        });
+        console.log(parseFloat(minAmt));
+        console.log(parseFloat(maxAmt));
+        console.log(filteredPrices);
+        displayProducts(filteredPrices);
+    });
+    
+    maxPrice.addEventListener('keyup', (e) => {
+        const minAmt = minPrice.value;
+        const maxAmt = e.target.value;
+        
+        const filteredPrices = products.filter((product) => {
+           if (maxAmt ==="" && minAmt !== ""){
+                product.listingPrice <= minAmt;
+            }else if (maxAmt ==="" && minAmt === ""){
+                 return product.listingPrice >= 0;
+            }else if (minAmt===""){
+                return product.listingPrice <= parseFloat(maxAmt);
+            }else{
+                return product.listingPrice >= parseFloat(minAmt) && product.listingPrice <= parseFloat(maxAmt);
+            }
+        });
+         console.log(parseFloat(minAmt));
+        console.log(parseFloat(maxAmt));
+        console.log(filteredPrices);
+        displayProducts(filteredPrices);
+
+    });
     
     // Categories
 

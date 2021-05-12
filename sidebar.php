@@ -23,8 +23,12 @@
         }
     ?>
     
-    <h4>Price</h4>
-    <input type="range" id="amount">
+    <h5>Price</h5>
+    <div class="price-input">
+      <input type="text" id="min-price" name="min-price" placeholder="Min">
+      <input type="text" id="max-price" name="max-price" placeholder="Max">
+    </div>
+    
 
     <ul>
         <li><a href="#"><label for "all">Show all</label>
