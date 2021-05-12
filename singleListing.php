@@ -31,6 +31,20 @@
                         <img src="studentdata/placeholder/profile.jpg"  alt="student Profile Picture" height="70" width="70">
                     </figure>
                     <ul class="myDetails">
+                    <?php
+                        $string = file_get_contents("products.json");
+                        $json_a = json_decode($string, true);
+                        foreach ($json_a as $key => $jsons) {
+                            foreach($jsons as $key => $value) {
+                                if($key == 'listingID' && $value == $_GET['listingID']){
+                                    $listingName =  $jsons['listingName'];
+                                    $fileName =  $jsons['fileName'];
+                                    $listingBio = $jsons['listingBio'];
+                                    $listingPrice = $jsons['listingPrice'];
+                                    }
+                                }
+                        }
+                        ?>
                         <li class ="profileText">Name</li>
                         <li class ="profileText">Course</li>
                         <li class ="profileText">Year</li>
@@ -39,24 +53,24 @@
                 </div>
                 <div class="student-content">
                     
-                    <h1 class="student-content-rtitle">Item name</h1>
+                    <h1 class="student-content-rtitle"><?php echo $listingName; ?></h1>
                     <div class="student-content-rcontent">
                         <!-- Slideshow container -->
                         <div class="slideshow-container">
                             <!-- Full-width images with number and caption text -->
                             <div class="mySlides fade">
                                 <a href="">
-                                <img class="profile-slideIMG" src="images/iphone1.jpg" alt="listing Artwork 1">
+                                <img class="profile-slideIMG" src="images/<?php echo $fileName; ?>" alt="listing Artwork 1">
                                 </a>
                             </div>
                             <div class="mySlides fade">
                                 <a href="">
-                                    <img class="profile-slideIMG" src="images/iphone2.jpg" alt="listing Artwork 2">
+                                    <img class="profile-slideIMG" src="images/<?php echo $fileName; ?>" alt="listing Artwork 2">
                                 </a>
                             </div>
                             <div class="mySlides fade">
                                 <a href="">
-                                    <img class="profile-slideIMG" src="images/iphone3.jpg" alt="listing Artwork 3">
+                                    <img class="profile-slideIMG" src="images/<?php echo $fileName; ?>" alt="listing Artwork 3">
                                 </a>
                             </div>
                             <!-- Next and previous buttons -->
@@ -71,12 +85,9 @@
                         </div>
                     <div class = "item-details">
                         <h2>Price</h2>
-                    <p>£ 0.00</p>
+                    <p>£ <?php echo $listingPrice; ?></p>
                     <h2>Details</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                        optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+                    <p><?php echo $listingBio; ?></p>
                     </div>
                     
                     </div>

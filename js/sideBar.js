@@ -93,7 +93,7 @@ searchBar.addEventListener('keyup', (e) => {
                 return `
                 <li class="card">
                   <div class="card-content">
-                    <a href="singleListing.php">
+                    <a href="singleListing.php?listingID=${product.listingID}">
                         <h2>${product.listingName}</h2>
                         <p>${product.listingPrice}</p>
                         <img src="images/${product.fileName}"></img>
