@@ -25,21 +25,25 @@
             <!-- Body start -->
             <div class="bodygrid">
                 <h1>ABOUT US</h1>
-                <p>placeholder is an independent marketplace, founded in 2021 by University of Brighton students....</p>
+                <p>The Uni Marketplace is an independent marketplace, founded in 2021 by University of Brighton students.</p>
                 <br><br>
-                <p>placeholder is a platform that provides our students the opportunity to sell their items across a wide variety of universities. We handle the management of sales across the sites they have been distributed to and deliver to our students regularly updated feedback on the growth of their marketplace via their individual logins on our website. The idea was to create an open and comfortable space for independent students to sell their items.</p>
+                <p>It is a platform that provides our students the opportunity to sell their items across a wide variety of universities. We handle the management of sales across the sites they have been distributed to and deliver to our students regularly updated feedback on the growth of their marketplace via their individual logins on our website. The idea was to create an open and comfortable space for independent students to sell their items.</p>
                 <br><br>
                 <h1>Our Team</h1>
                 <br>
+                <p>We are 5 students at the University of Brighton studying a BSc Computer Science hoping to achieve the highest grades through creativity, ambition, and persistence.</p>
+                <p>Our mission is to create a safe marketplace for students to sell and buy products at affordable prices. For students by students. Attempting to embark on a journey to attend to the average university student’s needs/standards by maintaining and further developing the marketplace into a safe haven for students.</p>
                 <div class="fltlt">
                     <p><b>Tim Amis</b></p>
-                    <p>Project Manager</p>
-                    <p><a href="Tim@placeholder.com">Tim@placeholder.com</a></p>
-                </div>
-                <div class="fltrt">
-                    <p><b>...</b></p>
-                    <p>...</p>
-                    <p><a href="...@placeholder.com">...@placeholder.com</a></p>
+                    <p>Project Manager / Backend Developer / Security Expert</p>
+                    <p><b>Andrea Dhelpra</b></p>
+                    <p>Project Manager Assistant / Frontend developer / Privacy Expert</p>
+                    <p><b>Adham Sayed</b></p>
+                    <p>SQL developer</p>
+                    <p><b>Shakir Redhead</b></p>
+                    <p>Backend Developer</p>
+                    <p><b>Adnan Takriti</b></p>
+                    <p>Web Designer</p>
                 </div>
             </div>
             <!-- Body end -->
